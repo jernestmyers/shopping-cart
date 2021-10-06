@@ -50,9 +50,23 @@ function Shop() {
     <div>
       <h1>Shop Our Replicas</h1>
       <p>Choose one of several replicas from our most cherished possessions.</p>
-      <div>
+      <div className="shop-overall-container">
         {items.map((item) => (
-          <p key={item.objectID}>{item.title}</p>
+          <div className="shop-thumbnail-container" key={item.objectID}>
+            <div className="image-container">
+              <img
+                className="shop-thumbnail-img"
+                src={item.primaryImageSmall}
+                alt={item.title}
+              ></img>
+            </div>
+            <div className="info-container">
+              <p>
+                {item.title} by{" "}
+                {item.artistDisplayName ? item.artistDisplayName : `unknown`}
+              </p>
+            </div>
+          </div>
         ))}
       </div>
     </div>
