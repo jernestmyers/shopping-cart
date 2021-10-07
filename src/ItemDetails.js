@@ -137,10 +137,16 @@ function ItemDetails({ match }) {
       <img src={item.primaryImageSmall} alt={item.title}></img>
       <p>{item.medium}</p>
       <p>{item.dimensions}</p>
-      <a href={item.objectURL} target="_blank" rel="noopener noreferrer">
+      <a
+        className="linkToMet"
+        href={item.objectURL}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         Click here to learn more about this piece.
       </a>
       <p>${price.price}</p>
+      <button>Add to Cart</button>
     </div>
   );
 }

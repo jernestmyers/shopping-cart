@@ -50,8 +50,7 @@ function Shop() {
 
   return (
     <div>
-      <h1>Shop Our Replicas</h1>
-      <p>Choose one of several replicas from our most cherished possessions.</p>
+      <p>Choose among several replicas from our collection.</p>
       <div className="shop-overall-container">
         {items.map((item) => (
           <div className="shop-thumbnail-container" key={item.objectID}>

@@ -5,6 +5,7 @@ import Nav from "./Nav.js";
 import About from "./About.js";
 import Shop from "./Shop.js";
 import ItemDetails from "./ItemDetails.js";
+import metFacade from "./imgs/the-met.jpg";
 
 function App() {
   return (
@@ -23,8 +24,8 @@ function App() {
 }
 
 const Home = () => (
-  <div>
-    <h1>Home Page</h1>
+  <div id="home-container">
+    <img id="met-facade" src={metFacade} alt="Facade of The Met"></img>
   </div>
 );
 
