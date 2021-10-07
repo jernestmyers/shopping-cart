@@ -6,7 +6,7 @@ body {
 }
 
 body {
-  font-size: 18px;
+  font: 18px sans-serif, Helvetica, Arial;
   color: #090809;
 }
 

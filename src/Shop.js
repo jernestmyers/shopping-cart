@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function Shop() {
   const metApiIds = [
@@ -28,7 +29,8 @@ function Shop() {
     await Promise.all(
       metApiIds.map(async (id) => {
         const artData = await fetch(
-          `https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`
+          `https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`,
+          { mode: "cors" }
         );
         const artObject = await artData.json();
         replicaObjects.push(artObject);
@@ -53,19 +55,21 @@ function Shop() {
       <div className="shop-overall-container">
         {items.map((item) => (
           <div className="shop-thumbnail-container" key={item.objectID}>
-            <div className="image-container">
-              <img
-                className="shop-thumbnail-img"
-                src={item.primaryImageSmall}
-                alt={item.title}
-              ></img>
-            </div>
-            <div className="info-container">
-              <p>
-                {item.title} by{" "}
-                {item.artistDisplayName ? item.artistDisplayName : `unknown`}
-              </p>
-            </div>
+            <Link to={`/shop/${item.objectID}`}>
+              <div className="image-container">
+                <img
+                  className="shop-thumbnail-img"
+                  src={item.primaryImageSmall}
+                  alt={item.title}
+                ></img>
+              </div>
+              <div className="info-container">
+                <p>
+                  {item.title} by{" "}
+                  {item.artistDisplayName ? item.artistDisplayName : `unknown`}
+                </p>
+              </div>
+            </Link>
           </div>
         ))}
       </div>
