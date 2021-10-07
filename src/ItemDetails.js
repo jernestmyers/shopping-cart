@@ -1,17 +1,113 @@
 import React, { useEffect, useState } from "react";
 
 function ItemDetails({ match }) {
-  const metApiIds = [
-    11116, 36131, 39901, 265904, 282234, 266983, 449534, 625591, 337070, 10946,
-    751505, 827660, 283099, 13390, 39737, 707455, 10186, 11227, 262612,
+  const priceList = [
+    {
+      id: 11116,
+      price: 50,
+      frame: 50,
+    },
+    {
+      id: 36131,
+      price: 30,
+      frame: 25,
+    },
+    {
+      id: 39901,
+      price: 30,
+      frame: 25,
+    },
+    {
+      id: 265904,
+      price: 25,
+      frame: 20,
+    },
+    {
+      id: 282234,
+      price: 30,
+      frame: 30,
+    },
+    {
+      id: 266983,
+      price: 25,
+      frame: 25,
+    },
+    {
+      id: 449534,
+      price: 60,
+      frame: 50,
+    },
+    {
+      id: 625591,
+      price: 400,
+      frame: "none",
+    },
+    {
+      id: 337070,
+      price: 25,
+      frame: 20,
+    },
+    {
+      id: 10946,
+      price: 120,
+      frame: 75,
+    },
+    {
+      id: 751505,
+      price: 100,
+      frame: "none",
+    },
+    {
+      id: 827660,
+      price: 30,
+      frame: 30,
+    },
+    {
+      id: 283099,
+      price: 30,
+      frame: 30,
+    },
+    {
+      id: 13390,
+      price: 25,
+      frame: 25,
+    },
+    {
+      id: 39737,
+      price: 40,
+      frame: "none",
+    },
+    {
+      id: 707455,
+      price: 25,
+      frame: 25,
+    },
+    {
+      id: 10186,
+      price: 60,
+      frame: 60,
+    },
+    {
+      id: 11227,
+      price: 50,
+      frame: 50,
+    },
+    {
+      id: 262612,
+      price: 35,
+      frame: 35,
+    },
   ];
+
+  const [item, setItem] = useState({});
+  const [price, setPrice] = useState({});
 
   useEffect(() => {
     fetchItem();
-    console.log(match.params.objectID);
+    matchPrice();
+    // console.log(match.params.objectID);
+    // console.log(price);
   }, []);
-
-  const [item, setItem] = useState({});
 
   const fetchItem = async () => {
     const artData = await fetch(
@@ -20,6 +116,15 @@ function ItemDetails({ match }) {
     );
     const artObject = await artData.json();
     setItem(artObject);
+  };
+
+  const matchPrice = () => {
+    priceList.map((obj) => {
+      if (obj.id === +match.params.objectID) {
+        // console.log(obj.id);
+        setPrice(obj);
+      }
+    });
   };
 
   return (
@@ -35,6 +140,7 @@ function ItemDetails({ match }) {
       <a href={item.objectURL} target="_blank" rel="noopener noreferrer">
         Click here to learn more about this piece.
       </a>
+      <p>${price.price}</p>
     </div>
   );
 }

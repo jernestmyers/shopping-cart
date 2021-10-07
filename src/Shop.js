@@ -7,11 +7,11 @@ function Shop() {
     751505, 827660, 283099, 13390, 39737, 707455, 10186, 11227, 262612,
   ];
 
+  const [items, setItems] = useState([]);
+
   useEffect(() => {
     fetchItems();
   }, []);
-
-  const [items, setItems] = useState([]);
 
   //   const fetchItems = async () => {
   //     // metApiIds.map((id) => {
@@ -63,13 +63,13 @@ function Shop() {
                   alt={item.title}
                 ></img>
               </div>
-              <div className="info-container">
-                <p>
-                  {item.title} by{" "}
-                  {item.artistDisplayName ? item.artistDisplayName : `unknown`}
-                </p>
-              </div>
             </Link>
+            <div className="info-container">
+              <p>
+                {item.title} by{" "}
+                {item.artistDisplayName ? item.artistDisplayName : `unknown`}
+              </p>
+            </div>
           </div>
         ))}
       </div>

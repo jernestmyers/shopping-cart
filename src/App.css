@@ -32,6 +32,8 @@ ul {
 
 nav {
   display: flex;
+  background-color: #ec042c;
+  color: white;
   justify-content: space-between;
   height: 4rem;
   margin-bottom: 2rem;
@@ -50,16 +52,17 @@ nav {
 #home-icon-text-container {
   display: flex;
   align-items: center;
-  border-left: 2px solid #090809;
+  border-left: 2px solid white;
 }
 
 #home-icon-text {
-  color: #090809;
+  color: white;
   font-size: 2rem;
   padding-left: 0.75rem;
 }
 
 li {
+  color: white;
   padding: 0 2rem;
 }
 
@@ -68,7 +71,7 @@ a {
 }
 
 a:visited {
-  color: #090809;
+  color: white;
 }
 
 .shop-overall-container {
