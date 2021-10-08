@@ -41,7 +41,7 @@ function ItemDetails({ match }) {
     {
       id: 625591,
       price: 400,
-      frame: "none",
+      frame: null,
     },
     {
       id: 337070,
@@ -56,7 +56,7 @@ function ItemDetails({ match }) {
     {
       id: 751505,
       price: 100,
-      frame: "none",
+      frame: null,
     },
     {
       id: 827660,
@@ -76,7 +76,7 @@ function ItemDetails({ match }) {
     {
       id: 39737,
       price: 40,
-      frame: "none",
+      frame: null,
     },
     {
       id: 707455,
@@ -106,8 +106,6 @@ function ItemDetails({ match }) {
   useEffect(() => {
     fetchItem();
     matchPrice();
-    // console.log(match.params.objectID);
-    // console.log(price);
   }, []);
 
   const fetchItem = async () => {
@@ -122,7 +120,6 @@ function ItemDetails({ match }) {
   const matchPrice = () => {
     priceList.map((obj) => {
       if (obj.id === +match.params.objectID) {
-        // console.log(obj.id);
         setPrice(obj);
       }
     });
@@ -146,8 +143,7 @@ function ItemDetails({ match }) {
       >
         Click here to learn more about this piece.
       </a>
-      <p>${price.price}</p>
-      <AddToCart price={price.price}></AddToCart>
+      <AddToCart price={price}></AddToCart>
     </div>
   );
 }

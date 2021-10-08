@@ -5,6 +5,7 @@ import Nav from "./components/Nav.js";
 import About from "./components/About.js";
 import Shop from "./components/Shop.js";
 import ItemDetails from "./components/ItemDetails.js";
+import ViewCart from "./components/ViewCart.js";
 import metFacade from "./imgs/the-met.jpg";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path="/about" component={About}></Route>
           <Route path="/shop" exact component={Shop}></Route>
           <Route path="/shop/:objectID" component={ItemDetails}></Route>
+          <Route path="/cart" component={ViewCart}></Route>
         </Switch>
       </div>
     </Router>
