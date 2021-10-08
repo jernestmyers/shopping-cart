@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import AddToCart from "./AddToCart.js";
 
 function ItemDetails({ match }) {
   const priceList = [
@@ -146,7 +147,7 @@ function ItemDetails({ match }) {
         Click here to learn more about this piece.
       </a>
       <p>${price.price}</p>
-      <button>Add to Cart</button>
+      <AddToCart price={price.price}></AddToCart>
     </div>
   );
 }

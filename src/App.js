@@ -1,10 +1,10 @@
 import "./App.css";
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Nav from "./Nav.js";
-import About from "./About.js";
-import Shop from "./Shop.js";
-import ItemDetails from "./ItemDetails.js";
+import Nav from "./components/Nav.js";
+import About from "./components/About.js";
+import Shop from "./components/Shop.js";
+import ItemDetails from "./components/ItemDetails.js";
 import metFacade from "./imgs/the-met.jpg";
 
 function App() {
