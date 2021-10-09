@@ -53,7 +53,7 @@ function AddToCart(props) {
               id="unframed"
               value={props.price.price}
             ></input>
-            <label for="unframed">${props.price.price} unframed</label>
+            <label htmlFor="unframed">${props.price.price} unframed</label>
             <input
               onChange={handleChange}
               type="radio"
@@ -61,7 +61,7 @@ function AddToCart(props) {
               id="framed"
               value={props.price.price + props.price.frame}
             ></input>
-            <label for="framed">
+            <label htmlFor="framed">
               ${props.price.price + props.price.frame} framed
             </label>
             <input type="submit" value="Add To Cart" />

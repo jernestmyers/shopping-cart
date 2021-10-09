@@ -58,7 +58,16 @@ function App() {
               />
             )}
           ></Route>
-          <Route path="/cart" component={ViewCart}></Route>
+          <Route
+            path="/cart"
+            render={(props) => (
+              <ViewCart
+                {...props}
+                itemsInCart={itemsInCart}
+                setItemsInCart={setItemsInCart}
+              />
+            )}
+          ></Route>
         </Switch>
       </div>
     </Router>

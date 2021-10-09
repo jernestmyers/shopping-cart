@@ -104,7 +104,8 @@ a:visited {
   height: 300px;
 }
 
-.shop-thumbnail-img {
+.shop-thumbnail-img,
+.cart-thumbnail {
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -131,4 +132,10 @@ a:visited {
   margin: 0;
   top: 0.5rem;
   right: 1rem;
+}
+
+.cart-thumbnail-container {
+  overflow: clip;
+  width: 150px;
+  height: 150px;
 }
