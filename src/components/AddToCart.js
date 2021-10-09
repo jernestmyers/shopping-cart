@@ -9,14 +9,30 @@ function AddToCart(props) {
       if (
         !document.querySelector(`#unframed`).checked &&
         !document.querySelector(`#framed`).checked
-      )
+      ) {
         alert(`Please choose a framing option.`);
+      } else {
+        props.setItemsInCart(
+          props.itemsInCart.concat({
+            itemToAdd: props.itemToAdd,
+            selectedPrice: selectedPrice,
+          })
+        );
+      }
+    } else {
+      props.setItemsInCart(
+        props.itemsInCart.concat({
+          itemToAdd: props.itemToAdd,
+          selectedPrice: { price: props.price.price, frameOption: `n/a` },
+        })
+      );
+      console.log(props.itemsInCart);
     }
     console.log(selectedPrice);
   };
 
   const handleChange = (e) => {
-    setSelectedPrice(e.target.value);
+    setSelectedPrice({ price: e.target.value, frameOption: e.target.id });
     console.log(e.target.value);
   };
 

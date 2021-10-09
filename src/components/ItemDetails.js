@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AddToCart from "./AddToCart.js";
 
-function ItemDetails({ match, items }) {
+function ItemDetails({ match, itemsForSale, itemsInCart, setItemsInCart }) {
   const priceList = [
     {
       id: 11116,
@@ -109,7 +109,7 @@ function ItemDetails({ match, items }) {
   }, []);
 
   const matchItem = () => {
-    items.map((obj) => {
+    itemsForSale.map((obj) => {
       if (obj.objectID === +match.params.objectID) {
         setItem(obj);
       }
@@ -142,7 +142,12 @@ function ItemDetails({ match, items }) {
       >
         Click here to learn more about this piece.
       </a>
-      <AddToCart price={price} item={item}></AddToCart>
+      <AddToCart
+        price={price}
+        itemToAdd={item}
+        itemsInCart={itemsInCart}
+        setItemsInCart={setItemsInCart}
+      ></AddToCart>
     </div>
   );
 }

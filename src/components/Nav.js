@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Nav() {
+function Nav(props) {
   return (
     <nav>
       <Link to="/">
@@ -24,7 +24,7 @@ function Nav() {
           <li>shop</li>
         </Link>
         <Link to="/cart">
-          <li>
+          <li id="nav-cart">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -41,6 +41,12 @@ function Nav() {
               <circle cx="20" cy="21" r="1"></circle>
               <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
             </svg>
+            {props.itemsInCart.length ? (
+              <p id="cart-counter">{props.itemsInCart.length}</p>
+            ) : (
+              <p id="cart-counter"></p>
+            )}
+            {/* <p id="cart-counter">{props.itemsInCart.length}</p> */}
           </li>
         </Link>
       </ul>

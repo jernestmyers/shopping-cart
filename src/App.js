@@ -14,7 +14,8 @@ function App() {
     751505, 827660, 283099, 13390, 39737, 707455, 10186, 11227, 262612,
   ];
 
-  const [items, setItems] = useState([]);
+  const [itemsForSale, setItemsForSale] = useState([]);
+  const [itemsInCart, setItemsInCart] = useState([]);
 
   useEffect(() => {
     const fetchItems = async () => {
@@ -29,7 +30,7 @@ function App() {
           replicaObjects.push(artObject);
         })
       );
-      setItems(items.concat(replicaObjects));
+      setItemsForSale(itemsForSale.concat(replicaObjects));
     };
     fetchItems();
   }, []);
@@ -37,18 +38,25 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Nav />
+        <Nav itemsInCart={itemsInCart} setItemsInCart={setItemsInCart} />
         <Switch>
           <Route path="/" exact component={Home}></Route>
           <Route path="/about" component={About}></Route>
           <Route
             path="/shop"
             exact
-            render={(props) => <Shop {...props} items={items} />}
+            render={(props) => <Shop {...props} itemsForSale={itemsForSale} />}
           ></Route>
           <Route
             path="/shop/:objectID"
-            render={(props) => <ItemDetails {...props} items={items} />}
+            render={(props) => (
+              <ItemDetails
+                {...props}
+                itemsForSale={itemsForSale}
+                itemsInCart={itemsInCart}
+                setItemsInCart={setItemsInCart}
+              />
+            )}
           ></Route>
           <Route path="/cart" component={ViewCart}></Route>
         </Switch>

@@ -6,7 +6,7 @@ function Shop(props) {
     <div>
       <p>Choose among several replicas from our collection.</p>
       <div className="shop-overall-container">
-        {props.items.map((item) => (
+        {props.itemsForSale.map((item) => (
           <div className="shop-thumbnail-container" key={item.objectID}>
             <Link to={`/shop/${item.objectID}`}>
               <div className="image-container">
