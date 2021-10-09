@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AddToCart from "./AddToCart.js";
 
-function ItemDetails({ match }) {
+function ItemDetails({ match, items }) {
   const priceList = [
     {
       id: 11116,
@@ -104,17 +104,16 @@ function ItemDetails({ match }) {
   const [price, setPrice] = useState({});
 
   useEffect(() => {
-    fetchItem();
+    matchItem();
     matchPrice();
   }, []);
 
-  const fetchItem = async () => {
-    const artData = await fetch(
-      `https://collectionapi.metmuseum.org/public/collection/v1/objects/${match.params.objectID}`,
-      { mode: "cors" }
-    );
-    const artObject = await artData.json();
-    setItem(artObject);
+  const matchItem = () => {
+    items.map((obj) => {
+      if (obj.objectID === +match.params.objectID) {
+        setItem(obj);
+      }
+    });
   };
 
   const matchPrice = () => {
