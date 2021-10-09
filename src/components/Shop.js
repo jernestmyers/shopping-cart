@@ -10,43 +10,37 @@ function Shop() {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
+    const fetchItems = async () => {
+      const replicaObjects = [];
+      await Promise.all(
+        metApiIds.map(async (id) => {
+          const artData = await fetch(
+            `https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`,
+            { mode: "cors" }
+          );
+          const artObject = await artData.json();
+          replicaObjects.push(artObject);
+        })
+      );
+      setItems(items.concat(replicaObjects));
+    };
     fetchItems();
   }, []);
 
-  //   const fetchItems = async () => {
-  //     // metApiIds.map((id) => {
-  //     const artData = await fetch(
-  //       `https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`
-  //     );
-  //     const artObject = await artData.json();
-  //     console.log(artObject);
-  //     setItems(items.concat(artObject));
-  //     // });
-  //   };
-
-  const fetchItems = async () => {
-    const replicaObjects = [];
-    await Promise.all(
-      metApiIds.map(async (id) => {
-        const artData = await fetch(
-          `https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`,
-          { mode: "cors" }
-        );
-        const artObject = await artData.json();
-        replicaObjects.push(artObject);
-      })
-    );
-    setItems(items.concat(replicaObjects));
-  };
-
-  //   const fetchItems = async () => {
-  //     const homerData = await fetch(
-  //       `https://collectionapi.metmuseum.org/public/collection/v1/objects/${metApiIds[0]}`
-  //     );
-  //     const homerObject = await homerData.json();
-  //     console.log(homerObject);
-  //     setItems(items.concat(homerObject));
-  //   };
+  // const fetchItems = async () => {
+  //   const replicaObjects = [];
+  //   await Promise.all(
+  //     metApiIds.map(async (id) => {
+  //       const artData = await fetch(
+  //         `https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`,
+  //         { mode: "cors" }
+  //       );
+  //       const artObject = await artData.json();
+  //       replicaObjects.push(artObject);
+  //     })
+  //   );
+  //   setItems(items.concat(replicaObjects));
+  // };
 
   return (
     <div>

@@ -143,7 +143,7 @@ function ItemDetails({ match }) {
       >
         Click here to learn more about this piece.
       </a>
-      <AddToCart price={price}></AddToCart>
+      <AddToCart price={price} item={item}></AddToCart>
     </div>
   );
 }
