@@ -128,10 +128,11 @@ a:visited {
 
 #cart-counter {
   position: absolute;
+  font-size: 1.25rem;
   padding: 0;
   margin: 0;
-  top: 0.5rem;
-  right: 1rem;
+  top: 0.4rem;
+  right: 1.25rem;
 }
 
 .cart-thumbnail-container {

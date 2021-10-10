@@ -2,7 +2,27 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 function ViewCart(props) {
-  console.log(props.itemsInCart);
+  //   console.log(props.itemsInCart);
+  const handleItemRemoval = (e) => {
+    // console.log(`remove item`);
+    // console.log(e.target.dataset.title);
+    // console.log(e.target.dataset.frameoption);
+    const amendedCart = [];
+    props.itemsInCart.filter((item) => {
+      if (e.target.dataset.title !== item.itemToAdd.title) {
+        amendedCart.push(item);
+      } else if (
+        e.target.dataset.frameoption &&
+        e.target.dataset.title === item.itemToAdd.title &&
+        e.target.dataset.frameoption !== item.selectedPrice.frameOption
+      ) {
+        amendedCart.push(item);
+      }
+    });
+    console.log(amendedCart);
+    props.setItemsInCart(amendedCart);
+  };
+
   return (
     <div>
       {!props.itemsInCart.length ? (
@@ -26,7 +46,20 @@ function ViewCart(props) {
                     alt="Artwork displayed in Shopping Cart"
                   />
                 </div>
-                <p>${item.selectedPrice.price}</p>
+                <p>
+                  ${item.selectedPrice.price}{" "}
+                  {item.selectedPrice.frameOption
+                    ? item.selectedPrice.frameOption
+                    : null}
+                </p>
+                <button
+                  data-title={item.itemToAdd.title}
+                  data-frameoption={item.selectedPrice.frameOption}
+                  className="remove-item"
+                  onClick={handleItemRemoval}
+                >
+                  Remove Item
+                </button>
               </div>
             );
           })}

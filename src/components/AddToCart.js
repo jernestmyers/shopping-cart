@@ -23,7 +23,7 @@ function AddToCart(props) {
       props.setItemsInCart(
         props.itemsInCart.concat({
           itemToAdd: props.itemToAdd,
-          selectedPrice: { price: props.price.price, frameOption: `n/a` },
+          selectedPrice: { price: props.price.price, frameOption: null },
         })
       );
       console.log(props.itemsInCart);
