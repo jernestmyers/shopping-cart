@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 
 function AddToCart(props) {
   const [selectedPrice, setSelectedPrice] = useState(props.price.price);
+  //   const [quantity, setQuantity] = useState(1);
+  let quantity = 1;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -12,23 +14,66 @@ function AddToCart(props) {
       ) {
         alert(`Please choose a framing option.`);
       } else {
-        props.setItemsInCart(
-          props.itemsInCart.concat({
-            itemToAdd: props.itemToAdd,
-            selectedPrice: selectedPrice,
-          })
-        );
+        let isPresent = false;
+        if (props.itemsInCart.length) {
+          props.setItemsInCart(
+            props.itemsInCart.map((item) => {
+              if (
+                props.itemToAdd.title === item[0] &&
+                selectedPrice.frameOption === item[1]
+              ) {
+                isPresent = true;
+                return [item[0], item[1], item[2], item[3], (item[4] += 1)];
+              } else {
+                return item;
+              }
+            })
+          );
+        }
+        if (!isPresent) {
+          props.setItemsInCart(
+            props.itemsInCart.concat([
+              [
+                props.itemToAdd.title,
+                selectedPrice.frameOption,
+                props.itemToAdd,
+                selectedPrice,
+                1,
+              ],
+            ])
+          );
+        }
+        // props.itemsInCart.map((item) => {
+        //   if (
+        //     props.itemToAdd.title === item[0] &&
+        //     selectedPrice.frameOption === item[1]
+        //   ) {
+        //     setQuantity((quantity += 1));
+        //   } else {
+        //     props.setItemsInCart(
+        //       props.itemsInCart.concat([
+        //         [
+        //           props.itemToAdd.title,
+        //           selectedPrice.frameOption,
+        //           props.itemToAdd,
+        //           selectedPrice,
+        //           1,
+        //         ],
+        //       ])
+        //     );
+        //   }
+        // });
       }
+      console.log(props.itemsInCart);
     } else {
       props.setItemsInCart(
-        props.itemsInCart.concat({
-          itemToAdd: props.itemToAdd,
-          selectedPrice: { price: props.price.price, frameOption: null },
-        })
+        props.itemsInCart.concat([
+          [props.itemToAdd.title, null, props.itemToAdd, selectedPrice],
+        ])
       );
       console.log(props.itemsInCart);
     }
-    console.log(selectedPrice);
+    // console.log(selectedPrice);
   };
 
   const handleChange = (e) => {
