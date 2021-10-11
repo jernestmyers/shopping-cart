@@ -2,25 +2,42 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 function ViewCart(props) {
-  //   console.log(props.itemsInCart);
+  const [sortedItemsInCart, setSortedItemsInCart] = useState([]);
+
+  useEffect(() => {
+    if (props.itemsInCart.length) sortItemsInCart();
+  }, []);
+
+  const sortItemsInCart = () => {};
+
   const handleItemRemoval = (e) => {
-    // console.log(`remove item`);
-    // console.log(e.target.dataset.title);
-    // console.log(e.target.dataset.frameoption);
-    const amendedCart = [];
-    props.itemsInCart.filter((item) => {
-      if (e.target.dataset.title !== item.itemToAdd.title) {
-        amendedCart.push(item);
-      } else if (
-        e.target.dataset.frameoption &&
-        e.target.dataset.title === item.itemToAdd.title &&
-        e.target.dataset.frameoption !== item.selectedPrice.frameOption
-      ) {
-        amendedCart.push(item);
-      }
-    });
-    console.log(amendedCart);
-    props.setItemsInCart(amendedCart);
+    // const amendedCart = [];
+    // props.itemsInCart.filter((item) => {
+    //   if (e.target.dataset.title !== item.itemToAdd.title) {
+    //     amendedCart.push(item);
+    //   } else if (
+    //     e.target.dataset.frameoption &&
+    //     e.target.dataset.title === item.itemToAdd.title &&
+    //     e.target.dataset.frameoption !== item.selectedPrice.frameOption
+    //   ) {
+    //     amendedCart.push(item);
+    //   }
+    // });
+    // console.log(amendedCart);
+    // props.setItemsInCart(amendedCart);
+    props.setItemsInCart(
+      props.itemsInCart.filter((item) => {
+        if (e.target.dataset.title !== item.itemToAdd.title) {
+          return item;
+        } else if (
+          e.target.dataset.frameoption &&
+          e.target.dataset.title === item.itemToAdd.title &&
+          e.target.dataset.frameoption !== item.selectedPrice.frameOption
+        ) {
+          return item;
+        }
+      })
+    );
   };
 
   return (
