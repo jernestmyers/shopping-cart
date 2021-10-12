@@ -66,11 +66,42 @@ function AddToCart(props) {
       }
       console.log(props.itemsInCart);
     } else {
-      props.setItemsInCart(
-        props.itemsInCart.concat([
-          [props.itemToAdd.title, null, props.itemToAdd, selectedPrice],
-        ])
-      );
+      //   props.setItemsInCart(
+      //     props.itemsInCart.concat([
+      //       [props.itemToAdd.title, null, props.itemToAdd, selectedPrice],
+      //     ])
+      //   );
+
+      let isPresent = false;
+      if (props.itemsInCart.length) {
+        props.setItemsInCart(
+          props.itemsInCart.map((item) => {
+            if (
+              props.itemToAdd.title === item[0]
+              // &&
+              //   selectedPrice.frameOption === item[1]
+            ) {
+              isPresent = true;
+              return [item[0], null, item[2], item[3], (item[4] += 1)];
+            } else {
+              return item;
+            }
+          })
+        );
+      }
+      if (!isPresent) {
+        props.setItemsInCart(
+          props.itemsInCart.concat([
+            [
+              props.itemToAdd.title,
+              null,
+              props.itemToAdd,
+              { price: props.price.price, frameOption: null },
+              1,
+            ],
+          ])
+        );
+      }
       console.log(props.itemsInCart);
     }
     // console.log(selectedPrice);
