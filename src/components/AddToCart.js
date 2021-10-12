@@ -2,8 +2,48 @@ import React, { useEffect, useState } from "react";
 
 function AddToCart(props) {
   const [selectedPrice, setSelectedPrice] = useState(props.price.price);
-  //   const [quantity, setQuantity] = useState(1);
-  let quantity = 1;
+  //   console.log(props);
+  const updateTextilePrice = () => {
+    setSelectedPrice({ price: props.price.price, frameOption: null });
+  };
+
+  const organizeCart = () => {
+    let isPresent = false;
+    if (props.itemsInCart.length) {
+      props.setItemsInCart(
+        props.itemsInCart.map((item) => {
+          if (
+            props.itemToAdd.title === item[0] &&
+            selectedPrice.frameOption === item[1]
+          ) {
+            isPresent = true;
+            return [item[0], item[1], item[2], item[3], (item[4] += 1)];
+          } else {
+            return item;
+          }
+        })
+      );
+    }
+    if (!isPresent) {
+      props.setItemsInCart(
+        props.itemsInCart.concat([
+          [
+            props.itemToAdd.title,
+            selectedPrice.frameOption,
+            props.itemToAdd,
+            selectedPrice,
+            1,
+          ],
+        ])
+      );
+    }
+  };
+
+  useEffect(() => {
+    if (!props.price.frame) {
+      updateTextilePrice();
+    }
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -14,35 +54,6 @@ function AddToCart(props) {
       ) {
         alert(`Please choose a framing option.`);
       } else {
-        let isPresent = false;
-        if (props.itemsInCart.length) {
-          props.setItemsInCart(
-            props.itemsInCart.map((item) => {
-              if (
-                props.itemToAdd.title === item[0] &&
-                selectedPrice.frameOption === item[1]
-              ) {
-                isPresent = true;
-                return [item[0], item[1], item[2], item[3], (item[4] += 1)];
-              } else {
-                return item;
-              }
-            })
-          );
-        }
-        if (!isPresent) {
-          props.setItemsInCart(
-            props.itemsInCart.concat([
-              [
-                props.itemToAdd.title,
-                selectedPrice.frameOption,
-                props.itemToAdd,
-                selectedPrice,
-                1,
-              ],
-            ])
-          );
-        }
         // props.itemsInCart.map((item) => {
         //   if (
         //     props.itemToAdd.title === item[0] &&
@@ -63,6 +74,7 @@ function AddToCart(props) {
         //     );
         //   }
         // });
+        organizeCart();
       }
       console.log(props.itemsInCart);
     } else {
@@ -71,38 +83,38 @@ function AddToCart(props) {
       //       [props.itemToAdd.title, null, props.itemToAdd, selectedPrice],
       //     ])
       //   );
-
-      let isPresent = false;
-      if (props.itemsInCart.length) {
-        props.setItemsInCart(
-          props.itemsInCart.map((item) => {
-            if (
-              props.itemToAdd.title === item[0]
-              // &&
-              //   selectedPrice.frameOption === item[1]
-            ) {
-              isPresent = true;
-              return [item[0], null, item[2], item[3], (item[4] += 1)];
-            } else {
-              return item;
-            }
-          })
-        );
-      }
-      if (!isPresent) {
-        props.setItemsInCart(
-          props.itemsInCart.concat([
-            [
-              props.itemToAdd.title,
-              null,
-              props.itemToAdd,
-              { price: props.price.price, frameOption: null },
-              1,
-            ],
-          ])
-        );
-      }
-      console.log(props.itemsInCart);
+      //   let isPresent = false;
+      updateTextilePrice();
+      organizeCart();
+      //   if (props.itemsInCart.length) {
+      //     props.setItemsInCart(
+      //       props.itemsInCart.map((item) => {
+      //         if (
+      //           props.itemToAdd.title === item[0] &&
+      //           selectedPrice.frameOption === item[1]
+      //         ) {
+      //           isPresent = true;
+      //           return [item[0], item[1], item[2], item[3], (item[4] += 1)];
+      //         } else {
+      //           return item;
+      //         }
+      //       })
+      //     );
+      //   }
+      //   if (!isPresent) {
+      //     props.setItemsInCart(
+      //       props.itemsInCart.concat([
+      //         [
+      //           props.itemToAdd.title,
+      //           selectedPrice.frameOption,
+      //           props.itemToAdd,
+      //           selectedPrice,
+      //           1,
+      //         ],
+      //       ])
+      //     );
+      //   }
+      //   console.log(props.itemsInCart);
     }
     // console.log(selectedPrice);
   };
