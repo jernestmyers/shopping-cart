@@ -2,14 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 function ViewCart(props) {
-  const [sortedItemsInCart, setSortedItemsInCart] = useState([]);
-
-  useEffect(() => {
-    if (props.itemsInCart.length) sortItemsInCart();
-  }, []);
-
-  const sortItemsInCart = () => {};
-
+  console.log(props);
+  console.log(props.itemsInCart);
   const handleItemRemoval = (e) => {
     // const amendedCart = [];
     // props.itemsInCart.filter((item) => {
@@ -25,19 +19,20 @@ function ViewCart(props) {
     // });
     // console.log(amendedCart);
     // props.setItemsInCart(amendedCart);
-    props.setItemsInCart(
-      props.itemsInCart.filter((item) => {
-        if (e.target.dataset.title !== item.itemToAdd.title) {
-          return item;
-        } else if (
-          e.target.dataset.frameoption &&
-          e.target.dataset.title === item.itemToAdd.title &&
-          e.target.dataset.frameoption !== item.selectedPrice.frameOption
-        ) {
-          return item;
-        }
-      })
-    );
+    // ORIGINAL CODE BELOW HERE
+    // props.setItemsInCart(
+    //   props.itemsInCart.filter((item) => {
+    //     if (e.target.dataset.title !== item.itemToAdd.title) {
+    //       return item;
+    //     } else if (
+    //       e.target.dataset.frameoption &&
+    //       e.target.dataset.title === item.itemToAdd.title &&
+    //       e.target.dataset.frameoption !== item.selectedPrice.frameOption
+    //     ) {
+    //       return item;
+    //     }
+    //   })
+    // );
   };
 
   return (
@@ -55,23 +50,22 @@ function ViewCart(props) {
           {props.itemsInCart.map((item) => {
             return (
               <div>
-                <p>{item.itemToAdd.title}</p>
+                <p>{item[2].title}</p>
                 <div className="cart-thumbnail-container">
                   <img
                     className="cart-thumbnail"
-                    src={item.itemToAdd.primaryImageSmall}
+                    src={item[2].primaryImageSmall}
                     alt="Artwork displayed in Shopping Cart"
                   />
                 </div>
                 <p>
-                  ${item.selectedPrice.price}{" "}
-                  {item.selectedPrice.frameOption
-                    ? item.selectedPrice.frameOption
-                    : null}
+                  ${item[3].price}{" "}
+                  {item[3].frameOption ? item[3].frameOption : null}
                 </p>
+                <p>quantity: {item[4]}</p>
                 <button
-                  data-title={item.itemToAdd.title}
-                  data-frameoption={item.selectedPrice.frameOption}
+                  data-title={item[0]}
+                  data-frameoption={item[1]}
                   className="remove-item"
                   onClick={handleItemRemoval}
                 >
