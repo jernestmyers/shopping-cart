@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 
 function AddToCart(props) {
   const [selectedPrice, setSelectedPrice] = useState(props.price.price);
-  //   console.log(props);
   const updateTextilePrice = () => {
     setSelectedPrice({ price: props.price.price, frameOption: null });
   };
@@ -76,7 +75,6 @@ function AddToCart(props) {
         // });
         organizeCart();
       }
-      console.log(props.itemsInCart);
     } else {
       //   props.setItemsInCart(
       //     props.itemsInCart.concat([
@@ -121,7 +119,6 @@ function AddToCart(props) {
 
   const handleChange = (e) => {
     setSelectedPrice({ price: e.target.value, frameOption: e.target.id });
-    console.log(e.target.value);
   };
 
   return (

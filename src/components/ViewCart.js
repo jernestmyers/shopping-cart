@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 function ViewCart(props) {
-  console.log(props);
-  console.log(props.itemsInCart);
   const handleItemRemoval = (e) => {
     // const amendedCart = [];
     // props.itemsInCart.filter((item) => {
@@ -33,9 +31,16 @@ function ViewCart(props) {
         }
       })
     );
-    // console.log(props.itemsInCart);
-    // console.log(e.target.dataset);
   };
+
+  const getTotalCost = () => {
+    let totalCost = 0;
+    props.itemsInCart.map((item) => {
+      totalCost += item[4] * item[3].price;
+    });
+    console.log(totalCost);
+  };
+  getTotalCost();
 
   return (
     <div>
@@ -51,7 +56,7 @@ function ViewCart(props) {
           <h4>Your Shopping Cart</h4>
           {props.itemsInCart.map((item) => {
             return (
-              <div>
+              <div key={item[3].objectID}>
                 <p>{item[2].title}</p>
                 <div className="cart-thumbnail-container">
                   <img
@@ -61,8 +66,8 @@ function ViewCart(props) {
                   />
                 </div>
                 <p>
-                  ${item[3].price}{" "}
-                  {item[3].frameOption ? item[3].frameOption : null}
+                  ${item[3].price} each
+                  {item[3].frameOption ? `, ${item[3].frameOption}` : null}
                 </p>
                 <p>quantity: {item[4]}</p>
                 <button
