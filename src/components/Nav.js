@@ -2,6 +2,19 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function Nav(props) {
+  console.log(props.itemsInCart);
+  const quantityArray = [];
+  props.itemsInCart.map((item) => {
+    quantityArray.push(item[4]);
+  });
+
+  const totalItems = quantityArray.reduce(
+    (previousValue, currentValue) => previousValue + currentValue,
+    0
+  );
+  console.log(totalItems);
+
+  const getQuantityInCart = () => {};
   return (
     <nav>
       <Link to="/">
@@ -42,7 +55,7 @@ function Nav(props) {
               <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
             </svg>
             {props.itemsInCart.length ? (
-              <p id="cart-counter">{props.itemsInCart.length}</p>
+              <p id="cart-counter">{totalItems}</p>
             ) : (
               <p id="cart-counter"></p>
             )}
