@@ -20,19 +20,21 @@ function ViewCart(props) {
     // console.log(amendedCart);
     // props.setItemsInCart(amendedCart);
     // ORIGINAL CODE BELOW HERE
-    // props.setItemsInCart(
-    //   props.itemsInCart.filter((item) => {
-    //     if (e.target.dataset.title !== item.itemToAdd.title) {
-    //       return item;
-    //     } else if (
-    //       e.target.dataset.frameoption &&
-    //       e.target.dataset.title === item.itemToAdd.title &&
-    //       e.target.dataset.frameoption !== item.selectedPrice.frameOption
-    //     ) {
-    //       return item;
-    //     }
-    //   })
-    // );
+    props.setItemsInCart(
+      props.itemsInCart.filter((item) => {
+        if (e.target.dataset.title !== item[0]) {
+          return item;
+        } else if (
+          e.target.dataset.frameoption &&
+          e.target.dataset.title === item[0] &&
+          e.target.dataset.frameoption !== item[1]
+        ) {
+          return item;
+        }
+      })
+    );
+    // console.log(props.itemsInCart);
+    // console.log(e.target.dataset);
   };
 
   return (
