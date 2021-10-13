@@ -1,24 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 function ViewCart(props) {
-  console.log(props.itemsInCart);
   const handleItemRemoval = (e) => {
-    // const amendedCart = [];
-    // props.itemsInCart.filter((item) => {
-    //   if (e.target.dataset.title !== item.itemToAdd.title) {
-    //     amendedCart.push(item);
-    //   } else if (
-    //     e.target.dataset.frameoption &&
-    //     e.target.dataset.title === item.itemToAdd.title &&
-    //     e.target.dataset.frameoption !== item.selectedPrice.frameOption
-    //   ) {
-    //     amendedCart.push(item);
-    //   }
-    // });
-    // console.log(amendedCart);
-    // props.setItemsInCart(amendedCart);
-    // ORIGINAL CODE BELOW HERE
     props.setItemsInCart(
       props.itemsInCart.filter((item) => {
         if (e.target.dataset.title !== item[0]) {
@@ -34,10 +18,11 @@ function ViewCart(props) {
     );
   };
 
+  let totalCost;
   const getTotalCost = () => {
-    let totalCost = 0;
+    totalCost = 0;
     props.itemsInCart.map((item) => {
-      totalCost += item[4] * item[3].price;
+      return (totalCost += item[4] * item[3].price);
     });
     console.log(totalCost);
   };
@@ -57,7 +42,7 @@ function ViewCart(props) {
           <h4>Your Shopping Cart</h4>
           {props.itemsInCart.map((item) => {
             return (
-              <div key={item[3].objectID}>
+              <div key={`${item[2].objectID}${item[3].frameOption}`}>
                 <p>{item[2].title}</p>
                 <div className="cart-thumbnail-container">
                   <img
@@ -82,6 +67,7 @@ function ViewCart(props) {
               </div>
             );
           })}
+          <h4>Total Cost: ${totalCost}</h4>
         </div>
       )}
     </div>
