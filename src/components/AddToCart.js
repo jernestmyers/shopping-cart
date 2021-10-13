@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 
 function AddToCart(props) {
   const [selectedPrice, setSelectedPrice] = useState(props.price.price);
-  const updateTextilePrice = () => {
-    setSelectedPrice({ price: props.price.price, frameOption: null });
-  };
+  //   const updateTextilePrice = () => {
+  //     setSelectedPrice({ price: props.price.price, frameOption: null });
+  //   };
 
   const organizeCart = () => {
     let isPresent = false;
@@ -40,9 +40,20 @@ function AddToCart(props) {
 
   useEffect(() => {
     if (!props.price.frame) {
-      updateTextilePrice();
+      //   updateTextilePrice();
+      setSelectedPrice((prevState) => ({
+        ...prevState,
+        price: props.price.price,
+        frameOption: props.price.frame,
+      }));
     }
-  });
+  }, [props.price]);
+
+  //   useEffect(() => {
+  //     if (baz) {
+  //       setFooBar(prevState => ({ ...prevState, bar: 123 }))
+  //     }
+  //   }, [baz])
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -82,7 +93,7 @@ function AddToCart(props) {
       //     ])
       //   );
       //   let isPresent = false;
-      updateTextilePrice();
+      //   updateTextilePrice();
       organizeCart();
       //   if (props.itemsInCart.length) {
       //     props.setItemsInCart(
