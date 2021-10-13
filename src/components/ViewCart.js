@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 function ViewCart(props) {
+  console.log(props.itemsInCart);
   const handleItemRemoval = (e) => {
     // const amendedCart = [];
     // props.itemsInCart.filter((item) => {

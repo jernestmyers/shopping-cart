@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Nav(props) {
   const quantityArray = [];
   props.itemsInCart.map((item) => {
-    quantityArray.push(item[4]);
+    return quantityArray.push(item[4]);
   });
 
   const totalItems = quantityArray.reduce(
