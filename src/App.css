@@ -88,6 +88,8 @@ a:visited {
   justify-items: center;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  column-gap: 1rem;
+  row-gap: 2rem;
 }
 
 .shop-thumbnail-container {
@@ -97,6 +99,10 @@ a:visited {
   overflow: clip;
   width: 300px;
   height: 400px;
+  border: 0.125rem solid #090809;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  background-color: #f5f3f5;
 }
 
 .image-container {

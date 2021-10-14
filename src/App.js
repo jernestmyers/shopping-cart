@@ -14,6 +14,104 @@ function App() {
     751505, 827660, 283099, 13390, 39737, 707455, 10186, 11227, 262612,
   ];
 
+  const priceList = [
+    {
+      id: 11116,
+      price: 50,
+      frame: 50,
+    },
+    {
+      id: 36131,
+      price: 30,
+      frame: 25,
+    },
+    {
+      id: 39901,
+      price: 30,
+      frame: 25,
+    },
+    {
+      id: 265904,
+      price: 25,
+      frame: 20,
+    },
+    {
+      id: 282234,
+      price: 30,
+      frame: 30,
+    },
+    {
+      id: 266983,
+      price: 25,
+      frame: 25,
+    },
+    {
+      id: 449534,
+      price: 60,
+      frame: 50,
+    },
+    {
+      id: 625591,
+      price: 400,
+      frame: null,
+    },
+    {
+      id: 337070,
+      price: 25,
+      frame: 20,
+    },
+    {
+      id: 10946,
+      price: 120,
+      frame: 75,
+    },
+    {
+      id: 751505,
+      price: 100,
+      frame: null,
+    },
+    {
+      id: 827660,
+      price: 30,
+      frame: 30,
+    },
+    {
+      id: 283099,
+      price: 30,
+      frame: 30,
+    },
+    {
+      id: 13390,
+      price: 25,
+      frame: 25,
+    },
+    {
+      id: 39737,
+      price: 40,
+      frame: null,
+    },
+    {
+      id: 707455,
+      price: 25,
+      frame: 25,
+    },
+    {
+      id: 10186,
+      price: 60,
+      frame: 60,
+    },
+    {
+      id: 11227,
+      price: 50,
+      frame: 50,
+    },
+    {
+      id: 262612,
+      price: 35,
+      frame: 35,
+    },
+  ];
+
   const [itemsForSale, setItemsForSale] = useState([]);
   const [itemsInCart, setItemsInCart] = useState([]);
 
@@ -49,7 +147,13 @@ function App() {
           <Route
             path="/shop"
             exact
-            render={(props) => <Shop {...props} itemsForSale={itemsForSale} />}
+            render={(props) => (
+              <Shop
+                {...props}
+                itemsForSale={itemsForSale}
+                priceList={priceList}
+              />
+            )}
           ></Route>
           <Route
             path="/shop/:objectID"
@@ -59,6 +163,7 @@ function App() {
                 itemsForSale={itemsForSale}
                 itemsInCart={itemsInCart}
                 setItemsInCart={setItemsInCart}
+                priceList={priceList}
               />
             )}
           ></Route>
