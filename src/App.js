@@ -38,7 +38,11 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Nav itemsInCart={itemsInCart} setItemsInCart={setItemsInCart} />
+        <Nav
+          className="navMenu"
+          itemsInCart={itemsInCart}
+          setItemsInCart={setItemsInCart}
+        />
         <Switch>
           <Route path="/" exact component={Home}></Route>
           <Route path="/about" component={About}></Route>

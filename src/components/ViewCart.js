@@ -18,6 +18,12 @@ function ViewCart(props) {
     );
   };
 
+  const handleQuantityChange = (e) => {
+    console.log(e.target);
+    console.log(e.target.value);
+    console.log(e.target.closest(`.remove-item`));
+  };
+
   let totalCost;
   const getTotalCost = () => {
     totalCost = 0;
@@ -56,6 +62,11 @@ function ViewCart(props) {
                   {item[3].frameOption ? `, ${item[3].frameOption}` : null}
                 </p>
                 <p>quantity: {item[4]}</p>
+                <input
+                  type="number"
+                  value={item[4]}
+                  onChange={handleQuantityChange}
+                ></input>
                 <button
                   data-title={item[0]}
                   data-frameoption={item[1]}
