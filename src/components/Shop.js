@@ -107,8 +107,8 @@ function Shop(props) {
       <p>Choose among several replicas from our collection.</p>
       <div className="shop-overall-container">
         {props.itemsForSale.map((item) => (
-          <div className="shop-thumbnail-container" key={item.objectID}>
-            <Link to={`/shop/${item.objectID}`}>
+          <Link to={`/shop/${item.objectID}`}>
+            <div className="shop-thumbnail-container" key={item.objectID}>
               <div className="image-container">
                 <img
                   className="shop-thumbnail-img"
@@ -116,27 +116,27 @@ function Shop(props) {
                   alt={item.title}
                 ></img>
               </div>
-            </Link>
-            <div className="info-container">
-              <p>
-                {item.title} by{" "}
-                {item.artistDisplayName ? item.artistDisplayName : `unknown`}
-              </p>
-              <p>
-                {props.priceList.map((obj) => {
-                  if (obj.id === item.objectID) {
-                    if (obj.frame) {
-                      return `$${obj.price} unframed / $${
-                        obj.price + obj.frame
-                      } framed`;
-                    } else {
-                      return `$${obj.price}, textile`;
+              <div className="info-container">
+                <p>
+                  {item.title} by{" "}
+                  {item.artistDisplayName ? item.artistDisplayName : `unknown`}
+                </p>
+                <p>
+                  {props.priceList.map((obj) => {
+                    if (obj.id === item.objectID) {
+                      if (obj.frame) {
+                        return `$${obj.price} unframed / $${
+                          obj.price + obj.frame
+                        } framed`;
+                      } else {
+                        return `$${obj.price}, textile`;
+                      }
                     }
-                  }
-                })}
-              </p>
+                  })}
+                </p>
+              </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
