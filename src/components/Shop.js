@@ -104,7 +104,27 @@ function Shop(props) {
 
   return (
     <div>
-      <p>Choose among several replicas from our collection.</p>
+      <h1>choose among our curated replicas from the met</h1>
+      <div id="filter-container">
+        <p>filters</p>
+        <div id="filter-btn-container">
+          <button className="filter-btn" id="show-all">
+            show all
+          </button>
+          <button className="filter-btn" id="show-photos">
+            photos
+          </button>
+          <button className="filter-btn" id="show-textiles">
+            textiles
+          </button>
+          <button className="filter-btn" id="show-paintings">
+            paintings
+          </button>
+          <button className="filter-btn" id="show-other">
+            other
+          </button>
+        </div>
+      </div>
       <div className="shop-overall-container">
         {props.itemsForSale.map((item) => (
           <Link to={`/shop/${item.objectID}`}>

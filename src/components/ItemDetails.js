@@ -131,29 +131,47 @@ function ItemDetails({
   };
 
   return (
-    <div>
-      <h4>
-        {item.title} by{" "}
-        {item.artistDisplayName ? item.artistDisplayName : `unknown`},{" "}
-        {item.objectDate}
-      </h4>
-      <img src={item.primaryImageSmall} alt={item.title}></img>
-      <p>{item.medium}</p>
-      <p>{item.dimensions}</p>
-      <a
-        className="linkToMet"
-        href={item.objectURL}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Click here to learn more about this piece.
-      </a>
-      <AddToCart
-        price={price}
-        itemToAdd={item}
-        itemsInCart={itemsInCart}
-        setItemsInCart={setItemsInCart}
-      ></AddToCart>
+    <div id="item-details-container">
+      <div id="item-details-info-container">
+        <div id="item-details-info">
+          <h3 id="object-details-header">Object Details</h3>
+          <h4>
+            <strong>Title</strong>: {item.title}
+          </h4>
+          <h4>
+            <strong>Date</strong>: {item.objectDate}
+          </h4>
+          <h4>
+            <strong>Artist</strong>:{" "}
+            {item.artistDisplayName ? item.artistDisplayName : `unknown`}
+          </h4>
+          <h4>
+            <strong>Medium</strong>: {item.medium}
+          </h4>
+          <h4>
+            <strong>Dimensions</strong>: {item.dimensions}
+          </h4>
+          <a
+            className="linkToMet"
+            href={item.objectURL}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Click here to learn more about this piece
+          </a>
+        </div>
+        <div id="add-item-container">
+          <AddToCart
+            price={price}
+            itemToAdd={item}
+            itemsInCart={itemsInCart}
+            setItemsInCart={setItemsInCart}
+          ></AddToCart>
+        </div>
+      </div>
+      <div>
+        <img src={item.primaryImageSmall} alt={item.title}></img>
+      </div>
     </div>
   );
 }

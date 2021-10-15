@@ -68,32 +68,36 @@ function AddToCart(props) {
   return (
     <div>
       {!props.price.frame ? (
-        <form onSubmit={handleSubmit}>
-          <p>${props.price.price}</p>
-          <input type="submit" value="Add To Cart" />
+        <form className="add-item-form" onSubmit={handleSubmit}>
+          <p>${props.price.price} textile</p>
+          <input className="add-btn" type="submit" value="Add To Cart" />
         </form>
       ) : (
         <div>
-          <form onSubmit={handleSubmit}>
-            <input
-              onChange={handleChange}
-              type="radio"
-              name="frameChoice"
-              id="unframed"
-              value={props.price.price}
-            ></input>
-            <label htmlFor="unframed">${props.price.price} unframed</label>
-            <input
-              onChange={handleChange}
-              type="radio"
-              name="frameChoice"
-              id="framed"
-              value={props.price.price + props.price.frame}
-            ></input>
-            <label htmlFor="framed">
-              ${props.price.price + props.price.frame} framed
-            </label>
-            <input type="submit" value="Add To Cart" />
+          <form className="add-item-form" onSubmit={handleSubmit}>
+            <div>
+              <input
+                onChange={handleChange}
+                type="radio"
+                name="frameChoice"
+                id="unframed"
+                value={props.price.price}
+              ></input>
+              <label htmlFor="unframed">${props.price.price} unframed</label>
+            </div>
+            <div>
+              <input
+                onChange={handleChange}
+                type="radio"
+                name="frameChoice"
+                id="framed"
+                value={props.price.price + props.price.frame}
+              ></input>
+              <label htmlFor="framed">
+                ${props.price.price + props.price.frame} framed
+              </label>
+            </div>
+            <input className="add-btn" type="submit" value="Add To Cart" />
           </form>
         </div>
       )}
