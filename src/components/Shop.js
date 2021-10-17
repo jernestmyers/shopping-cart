@@ -104,7 +104,7 @@ function Shop(props) {
 
   return (
     <div>
-      <h1>choose among our curated replicas from the met</h1>
+      <h1>choose among our curated replicas</h1>
       <div id="filter-container">
         <p>filters</p>
         <div id="filter-btn-container">
@@ -127,8 +127,8 @@ function Shop(props) {
       </div>
       <div className="shop-overall-container">
         {props.itemsForSale.map((item) => (
-          <Link to={`/shop/${item.objectID}`}>
-            <div className="shop-thumbnail-container" key={item.objectID}>
+          <Link to={`/shop/${item.objectID}`} key={item.objectID}>
+            <div className="shop-thumbnail-container">
               <div className="image-container">
                 <img
                   className="shop-thumbnail-img"

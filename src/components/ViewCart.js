@@ -37,48 +37,71 @@ function ViewCart(props) {
   return (
     <div>
       {!props.itemsInCart.length ? (
-        <div>
-          <h4>Your cart is empty</h4>
+        <div className="view-cart-container">
+          <h1>Your cart is empty.</h1>
           <Link to="/shop">
             <button>Shop</button>
           </Link>
         </div>
       ) : (
-        <div>
-          <h4>Your Shopping Cart</h4>
+        <div className="view-cart-container">
+          <h1>Your Shopping Cart</h1>
           {props.itemsInCart.map((item) => {
             return (
               <div key={`${item[2].objectID}${item[3].frameOption}`}>
-                <p>{item[2].title}</p>
-                <div className="cart-thumbnail-container">
-                  <img
-                    className="cart-thumbnail"
-                    src={item[2].primaryImageSmall}
-                    alt="Artwork displayed in Shopping Cart"
-                  />
+                <div className="item-in-cart-container">
+                  <div className="cart-thumbnail-container">
+                    <img
+                      className="cart-thumbnail"
+                      src={item[2].primaryImageSmall}
+                      alt="Artwork displayed in Shopping Cart"
+                    />
+                  </div>
+                  <div className="view-cart-details-container">
+                    <p>{item[2].title}</p>
+                    <p>by {item[2].artistDisplayName}</p>
+                    <p>
+                      ${item[3].price} each
+                      {item[3].frameOption ? `, ${item[3].frameOption}` : null}
+                    </p>
+                    {/* <p>quantity: {item[4]}</p> */}
+                  </div>
+                  <div className="view-cart-edit-container">
+                    <p>subtotal: ${item[4] * item[3].price}</p>
+                    <input
+                      type="number"
+                      value={item[4]}
+                      onChange={handleQuantityChange}
+                    ></input>
+                    <button
+                      data-title={item[0]}
+                      data-frameoption={item[1]}
+                      className="remove-item"
+                      onClick={handleItemRemoval}
+                    >
+                      Remove
+                    </button>
+                  </div>
                 </div>
-                <p>
-                  ${item[3].price} each
-                  {item[3].frameOption ? `, ${item[3].frameOption}` : null}
-                </p>
-                <p>quantity: {item[4]}</p>
-                <input
-                  type="number"
-                  value={item[4]}
-                  onChange={handleQuantityChange}
-                ></input>
-                <button
-                  data-title={item[0]}
-                  data-frameoption={item[1]}
-                  className="remove-item"
-                  onClick={handleItemRemoval}
-                >
-                  Remove Item
-                </button>
               </div>
             );
           })}
-          <h4>Total Cost: ${totalCost}</h4>
+          {/* {props.itemsInCart.map((item) => {
+            return (
+              <div key={`${item[2].objectID}${item[3].frameOption}`}>
+                <div>
+                  <p>{item[4]} - </p>
+                  <p>{item[2].title} at</p>
+                  <p>
+                    ${item[3].price} each
+                    {item[3].frameOption ? `, ${item[3].frameOption}` : null}
+                  </p>
+                  <p>subtotal: ${item[4] * item[3].price}</p>
+                </div>
+              </div>
+            );
+          })} */}
+          <h4 id="view-cart-total">Total: ${totalCost}</h4>
         </div>
       )}
     </div>
