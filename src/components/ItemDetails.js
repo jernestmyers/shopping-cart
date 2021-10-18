@@ -39,7 +39,7 @@ function ItemDetails({
     <div id="item-details-container">
       <div id="item-details-info-container">
         <div id="item-details-info">
-          <h3 id="object-details-header">Object Details</h3>
+          <h3 id="object-details-header">Details</h3>
           <h4>
             <strong>Title</strong>: {item.title}
           </h4>

@@ -99,9 +99,10 @@ a:visited {
   display: grid;
   justify-items: center;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  /* grid-template-rows: 1fr 1fr 1fr 1fr 1fr; */
   column-gap: 1rem;
   row-gap: 2rem;
+  margin-bottom: 1rem;
 }
 
 .shop-thumbnail-container {
@@ -388,6 +389,14 @@ button:hover {
 }
 
 /* BEGIN SHOP CSS */
+.filter-btn {
+  font-size: 1rem;
+}
+
+.filter-selected {
+  background-color: #ec042c;
+}
+
 #filter-container {
   margin-bottom: 1rem;
 }

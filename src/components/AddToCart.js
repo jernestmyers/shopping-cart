@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 
 function AddToCart(props) {
-  console.log(props);
   const [selectedPrice, setSelectedPrice] = useState(props.price.price);
   const [selectedQuantity, setSelectedQuantity] = useState(1);
   //   useEffect(() => {
@@ -94,7 +93,9 @@ function AddToCart(props) {
               id="unframed"
               value={props.price.price}
             ></input>
-            <label htmlFor="unframed">${props.price.price} unframed</label>
+            <label className="frame-selection-label" htmlFor="unframed">
+              ${props.price.price} unframed
+            </label>
             <input
               onChange={handleFrameChoice}
               type="radio"
@@ -102,7 +103,7 @@ function AddToCart(props) {
               id="framed"
               value={props.price.price + props.price.frame}
             ></input>
-            <label htmlFor="framed">
+            <label className="frame-selection-label" htmlFor="framed">
               ${props.price.price + props.price.frame} framed
             </label>
           </div>
