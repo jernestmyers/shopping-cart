@@ -50,6 +50,7 @@ nav {
   justify-content: space-between;
   height: 4rem;
   margin-bottom: 1rem;
+  z-index: 10;
 }
 
 #home-icon-container {
@@ -220,7 +221,17 @@ h4 {
   width: 100%;
   grid-area: addToCart;
   justify-content: space-around;
-  margin-top: 3rem;
+  margin-top: 1.5rem;
+}
+
+#back-container {
+  width: 5rem;
+  /* width: auto; */
+}
+
+#back-to-shop {
+  color: black;
+  font-weight: 600;
 }
 
 /* BEGIN ADDTOCART CSS */
@@ -369,6 +380,11 @@ button:hover {
 
 #cart-total {
   padding-right: 0.5rem;
+}
+
+#viewCart-back-container {
+  width: auto;
+  margin-top: 0.25rem;
 }
 
 /* BEGIN SHOP CSS */

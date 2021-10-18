@@ -82,9 +82,70 @@ function AddToCart(props) {
 
   return (
     <div>
-      {!props.price.frame ? (
-        <form className="add-item-form" onSubmit={handleSubmit}>
+      <form className="add-item-form" onSubmit={handleSubmit}>
+        {!props.price.frame ? (
           <p>${props.price.price} textile</p>
+        ) : (
+          <div className="radio-framing">
+            <input
+              onChange={handleFrameChoice}
+              type="radio"
+              name="frameChoice"
+              id="unframed"
+              value={props.price.price}
+            ></input>
+            <label htmlFor="unframed">${props.price.price} unframed</label>
+            <input
+              onChange={handleFrameChoice}
+              type="radio"
+              name="frameChoice"
+              id="framed"
+              value={props.price.price + props.price.frame}
+            ></input>
+            <label htmlFor="framed">
+              ${props.price.price + props.price.frame} framed
+            </label>
+          </div>
+        )}
+        <div id="quantity-container">
+          <label className="quantity-label" htmlFor="quantityInput">
+            quantity:
+          </label>
+          <input
+            onChange={handleQuantity}
+            type="number"
+            id="quantityInput"
+            min="1"
+            step="1"
+            value={selectedQuantity}
+          ></input>
+          <span className="validity"></span>
+        </div>
+        <input className="add-btn" type="submit" value="Add To Cart" />
+      </form>
+      {/* ) : (
+      <div>
+        <form className="add-item-form" onSubmit={handleSubmit}>
+          <div className="radio-framing">
+            <input
+              onChange={handleFrameChoice}
+              type="radio"
+              name="frameChoice"
+              id="unframed"
+              value={props.price.price}
+            ></input>
+            <label htmlFor="unframed">${props.price.price} unframed</label>
+            <input
+              onChange={handleFrameChoice}
+              type="radio"
+              name="frameChoice"
+              id="framed"
+              value={props.price.price + props.price.frame}
+            ></input>
+            <label htmlFor="framed">
+              ${props.price.price + props.price.frame} framed
+            </label>
+          </div>
           <div id="quantity-container">
             <label className="quantity-label" htmlFor="quantityInput">
               quantity:
@@ -101,47 +162,8 @@ function AddToCart(props) {
           </div>
           <input className="add-btn" type="submit" value="Add To Cart" />
         </form>
-      ) : (
-        <div>
-          <form className="add-item-form" onSubmit={handleSubmit}>
-            <div className="radio-framing">
-              <input
-                onChange={handleFrameChoice}
-                type="radio"
-                name="frameChoice"
-                id="unframed"
-                value={props.price.price}
-              ></input>
-              <label htmlFor="unframed">${props.price.price} unframed</label>
-              <input
-                onChange={handleFrameChoice}
-                type="radio"
-                name="frameChoice"
-                id="framed"
-                value={props.price.price + props.price.frame}
-              ></input>
-              <label htmlFor="framed">
-                ${props.price.price + props.price.frame} framed
-              </label>
-            </div>
-            <div id="quantity-container">
-              <label className="quantity-label" htmlFor="quantityInput">
-                quantity:
-              </label>
-              <input
-                onChange={handleQuantity}
-                type="number"
-                id="quantityInput"
-                min="1"
-                step="1"
-                value={selectedQuantity}
-              ></input>
-              <span className="validity"></span>
-            </div>
-            <input className="add-btn" type="submit" value="Add To Cart" />
-          </form>
-        </div>
-      )}
+      </div>
+      )} */}
     </div>
   );
 }

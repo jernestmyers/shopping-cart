@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import AddToCart from "./AddToCart.js";
+import { Link } from "react-router-dom";
 
 function ItemDetails({
   match,
@@ -73,6 +74,11 @@ function ItemDetails({
             selectedQuantity={selectedQuantity}
             setSelectedQuantity={setSelectedQuantity}
           ></AddToCart>
+        </div>
+        <div id="back-container">
+          <Link id="back-to-shop" to="/shop">
+            <p> &#8592; back</p>
+          </Link>
         </div>
       </div>
       <div>

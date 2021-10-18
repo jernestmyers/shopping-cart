@@ -136,6 +136,11 @@ function ViewCart(props) {
               Continue to Checkout
             </button>
           </div>
+          <div id="viewCart-back-container">
+            <Link id="back-to-shop" to="/shop">
+              <p> &#8592; continue shopping</p>
+            </Link>
+          </div>
         </div>
       )}
     </div>
