@@ -7,6 +7,7 @@ import Shop from "./components/Shop.js";
 import ItemDetails from "./components/ItemDetails.js";
 import ViewCart from "./components/ViewCart.js";
 import metFacade from "./imgs/the-met.jpg";
+import Footer from "./components/Footer.js";
 
 function App() {
   const metApiIds = [
@@ -183,6 +184,7 @@ function App() {
             )}
           ></Route>
         </Switch>
+        {/* <Footer></Footer> */}
       </div>
     </Router>
   );
