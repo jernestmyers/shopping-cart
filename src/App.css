@@ -224,6 +224,14 @@ h4 {
 }
 
 /* BEGIN ADDTOCART CSS */
+.add-item-form {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5rem;
+  align-items: center;
+  row-gap: 0.5rem;
+}
+
 .radio-framing input[type="radio"] {
   opacity: 0;
   position: fixed;
@@ -255,11 +263,9 @@ h4 {
   color: white;
 }
 
-.add-item-form {
-  display: flex;
-  flex-direction: column;
-  font-size: 1.5rem;
-  align-items: center;
+.quantity-label {
+  font-size: 1rem;
+  margin-right: 0.25rem;
 }
 
 .add-btn,
@@ -315,6 +321,10 @@ button:hover {
   width: 8rem;
 }
 
+.remove-item {
+  font-size: 1rem;
+}
+
 #view-cart-total {
   display: flex;
   padding: 0 0.5rem;
@@ -348,3 +358,10 @@ button:hover {
   font-weight: 500;
   margin-bottom: 0.5rem;
 }
+
+/* CLASS TO TOGGLE UNDERLINE IN NAV */
+/* .nav-underline {
+  text-decoration: underline;
+  text-underline-offset: 0.5rem;
+  text-decoration-thickness: 0.125rem;
+} */

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 function AddToCart(props) {
   const [selectedPrice, setSelectedPrice] = useState(props.price.price);
+  const [selectedQuantity, setSelectedQuantity] = useState(1);
 
   const organizeCart = () => {
     let isPresent = false;
@@ -13,7 +14,13 @@ function AddToCart(props) {
             selectedPrice.frameOption === item[1]
           ) {
             isPresent = true;
-            return [item[0], item[1], item[2], item[3], (item[4] += 1)];
+            return [
+              item[0],
+              item[1],
+              item[2],
+              item[3],
+              (item[4] += selectedQuantity),
+            ];
           } else {
             return item;
           }
@@ -28,7 +35,7 @@ function AddToCart(props) {
             selectedPrice.frameOption,
             props.itemToAdd,
             selectedPrice,
-            1,
+            selectedQuantity,
           ],
         ])
       );
@@ -61,8 +68,12 @@ function AddToCart(props) {
     }
   };
 
-  const handleChange = (e) => {
+  const handleFrameChoice = (e) => {
     setSelectedPrice({ price: e.target.value, frameOption: e.target.id });
+  };
+
+  const handleQuantity = (e) => {
+    setSelectedQuantity(+e.target.value);
   };
 
   return (
@@ -77,17 +88,15 @@ function AddToCart(props) {
           <form className="add-item-form" onSubmit={handleSubmit}>
             <div className="radio-framing">
               <input
-                onChange={handleChange}
+                onChange={handleFrameChoice}
                 type="radio"
                 name="frameChoice"
                 id="unframed"
                 value={props.price.price}
               ></input>
               <label htmlFor="unframed">${props.price.price} unframed</label>
-              {/* </div> */}
-              {/* <div> */}
               <input
-                onChange={handleChange}
+                onChange={handleFrameChoice}
                 type="radio"
                 name="frameChoice"
                 id="framed"
@@ -96,6 +105,18 @@ function AddToCart(props) {
               <label htmlFor="framed">
                 ${props.price.price + props.price.frame} framed
               </label>
+            </div>
+            <div>
+              <label className="quantity-label" htmlFor="quantityInput">
+                quantity:
+              </label>
+              <input
+                onChange={handleQuantity}
+                type="number"
+                id="quantityInput"
+                min="1"
+                value={selectedQuantity}
+              ></input>
             </div>
             <input className="add-btn" type="submit" value="Add To Cart" />
           </form>

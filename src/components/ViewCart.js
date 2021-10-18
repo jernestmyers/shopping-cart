@@ -30,7 +30,6 @@ function ViewCart(props) {
     props.itemsInCart.map((item) => {
       return (totalCost += item[4] * item[3].price);
     });
-    console.log(totalCost);
   };
   getTotalCost();
 
@@ -109,7 +108,16 @@ function ViewCart(props) {
             <h3 id="cart-total">Total: ${totalCost}</h3>
           </div>
           <div id="view-cart-total">
-            <button id="checkout-btn">Continue to Checkout</button>
+            <button
+              id="checkout-btn"
+              onClick={() =>
+                alert(
+                  `Thanks for exploring my mock e-commerce site. Message me on GitHub with constructive feedback, if desired.`
+                )
+              }
+            >
+              Continue to Checkout
+            </button>
           </div>
         </div>
       )}
