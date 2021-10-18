@@ -106,7 +106,7 @@ function AddToCart(props) {
                 ${props.price.price + props.price.frame} framed
               </label>
             </div>
-            <div>
+            <div id="quantity-container">
               <label className="quantity-label" htmlFor="quantityInput">
                 quantity:
               </label>
@@ -115,8 +115,10 @@ function AddToCart(props) {
                 type="number"
                 id="quantityInput"
                 min="1"
+                step="1"
                 value={selectedQuantity}
               ></input>
+              <span class="validity"></span>
             </div>
             <input className="add-btn" type="submit" value="Add To Cart" />
           </form>
