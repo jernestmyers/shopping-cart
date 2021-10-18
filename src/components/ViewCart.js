@@ -40,12 +40,16 @@ function ViewCart(props) {
         <div className="view-cart-container">
           <h1>Your cart is empty.</h1>
           <Link to="/shop">
-            <button>Shop</button>
+            <button>Click to Shop</button>
           </Link>
         </div>
       ) : (
         <div className="view-cart-container">
           <h1>Your Shopping Cart</h1>
+          {/* <div id="view-cart-total"> */}
+          {/* <h4>Cart Total: ${totalCost}</h4> */}
+          {/* <button id="checkout-btn">Continue to Checkout</button> */}
+          {/* </div> */}
           {props.itemsInCart.map((item) => {
             return (
               <div key={`${item[2].objectID}${item[3].frameOption}`}>
@@ -101,7 +105,12 @@ function ViewCart(props) {
               </div>
             );
           })} */}
-          <h4 id="view-cart-total">Total: ${totalCost}</h4>
+          <div id="cart-total-container">
+            <h3 id="cart-total">Total: ${totalCost}</h3>
+          </div>
+          <div id="view-cart-total">
+            <button id="checkout-btn">Continue to Checkout</button>
+          </div>
         </div>
       )}
     </div>

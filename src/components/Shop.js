@@ -104,9 +104,9 @@ function Shop(props) {
 
   return (
     <div>
-      <h1>choose among our curated replicas</h1>
+      {/* <h1>choose among our curated replicas</h1> */}
       <div id="filter-container">
-        <p>filters</p>
+        <h4 id="filter-desc">filter by medium</h4>
         <div id="filter-btn-container">
           <button className="filter-btn" id="show-all">
             show all

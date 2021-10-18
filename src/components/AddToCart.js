@@ -75,7 +75,7 @@ function AddToCart(props) {
       ) : (
         <div>
           <form className="add-item-form" onSubmit={handleSubmit}>
-            <div>
+            <div className="radio-framing">
               <input
                 onChange={handleChange}
                 type="radio"
@@ -84,8 +84,8 @@ function AddToCart(props) {
                 value={props.price.price}
               ></input>
               <label htmlFor="unframed">${props.price.price} unframed</label>
-            </div>
-            <div>
+              {/* </div> */}
+              {/* <div> */}
               <input
                 onChange={handleChange}
                 type="radio"
