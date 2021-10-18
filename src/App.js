@@ -114,6 +114,7 @@ function App() {
 
   const [itemsForSale, setItemsForSale] = useState([]);
   const [itemsInCart, setItemsInCart] = useState([]);
+  // const [selectedQuantity, setSelectedQuantity] = useState(1);
 
   useEffect(() => {
     const fetchItems = async () => {
@@ -164,6 +165,8 @@ function App() {
                 itemsInCart={itemsInCart}
                 setItemsInCart={setItemsInCart}
                 priceList={priceList}
+                // selectedQuantity={selectedQuantity}
+                // setSelectedQuantity={setSelectedQuantity}
               />
             )}
           ></Route>
@@ -174,6 +177,8 @@ function App() {
                 {...props}
                 itemsInCart={itemsInCart}
                 setItemsInCart={setItemsInCart}
+                // selectedQuantity={selectedQuantity}
+                // setSelectedQuantity={setSelectedQuantity}
               />
             )}
           ></Route>

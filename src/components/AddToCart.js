@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
 
 function AddToCart(props) {
+  console.log(props);
   const [selectedPrice, setSelectedPrice] = useState(props.price.price);
   const [selectedQuantity, setSelectedQuantity] = useState(1);
+  //   useEffect(() => {
+  //     props.setSelectedQuantity(1);
+  //   }, []);
 
   const organizeCart = () => {
     let isPresent = false;
@@ -81,6 +85,20 @@ function AddToCart(props) {
       {!props.price.frame ? (
         <form className="add-item-form" onSubmit={handleSubmit}>
           <p>${props.price.price} textile</p>
+          <div id="quantity-container">
+            <label className="quantity-label" htmlFor="quantityInput">
+              quantity:
+            </label>
+            <input
+              onChange={handleQuantity}
+              type="number"
+              id="quantityInput"
+              min="1"
+              step="1"
+              value={selectedQuantity}
+            ></input>
+            <span className="validity"></span>
+          </div>
           <input className="add-btn" type="submit" value="Add To Cart" />
         </form>
       ) : (
@@ -118,7 +136,7 @@ function AddToCart(props) {
                 step="1"
                 value={selectedQuantity}
               ></input>
-              <span class="validity"></span>
+              <span className="validity"></span>
             </div>
             <input className="add-btn" type="submit" value="Add To Cart" />
           </form>

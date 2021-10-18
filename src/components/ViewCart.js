@@ -19,9 +19,24 @@ function ViewCart(props) {
   };
 
   const handleQuantityChange = (e) => {
-    console.log(e.target);
-    console.log(e.target.value);
-    console.log(e.target.closest(`.remove-item`));
+    const inputToEditQuantity = e.target;
+    if (inputToEditQuantity.validity.valid && inputToEditQuantity.value) {
+      props.setItemsInCart(
+        props.itemsInCart.map((item) => {
+          if (e.target.dataset.title !== item[0]) {
+            return item;
+          } else if (
+            e.target.dataset.frameoption &&
+            e.target.dataset.title === item[0] &&
+            e.target.dataset.frameoption !== item[1]
+          ) {
+            return item;
+          } else {
+            return [item[0], item[1], item[2], item[3], +e.target.value];
+          }
+        })
+      );
+    }
   };
 
   let totalCost;
@@ -45,10 +60,6 @@ function ViewCart(props) {
       ) : (
         <div className="view-cart-container">
           <h1>Your Shopping Cart</h1>
-          {/* <div id="view-cart-total"> */}
-          {/* <h4>Cart Total: ${totalCost}</h4> */}
-          {/* <button id="checkout-btn">Continue to Checkout</button> */}
-          {/* </div> */}
           {props.itemsInCart.map((item) => {
             return (
               <div key={`${item[2].objectID}${item[3].frameOption}`}>
@@ -67,15 +78,36 @@ function ViewCart(props) {
                       ${item[3].price} each
                       {item[3].frameOption ? `, ${item[3].frameOption}` : null}
                     </p>
-                    {/* <p>quantity: {item[4]}</p> */}
                   </div>
                   <div className="view-cart-edit-container">
                     <p>subtotal: ${item[4] * item[3].price}</p>
-                    <input
+                    {/* <input
+                      data-title={item[0]}
+                      data-frameoption={item[1]}
                       type="number"
                       value={item[4]}
+                      step="1"
+                      min="1"
                       onChange={handleQuantityChange}
-                    ></input>
+                    ></input> */}
+                    {/* <form> */}
+                    <div id="quantity-container">
+                      <label className="quantity-label" htmlFor="quantityInput">
+                        edit:
+                      </label>
+                      <input
+                        data-title={item[0]}
+                        data-frameoption={item[1]}
+                        onChange={handleQuantityChange}
+                        type="number"
+                        id="quantityInput"
+                        min="1"
+                        step="1"
+                        value={item[4]}
+                      ></input>
+                      {/* <span className="validity"></span> */}
+                    </div>
+                    {/* </form> */}
                     <button
                       data-title={item[0]}
                       data-frameoption={item[1]}
@@ -89,21 +121,6 @@ function ViewCart(props) {
               </div>
             );
           })}
-          {/* {props.itemsInCart.map((item) => {
-            return (
-              <div key={`${item[2].objectID}${item[3].frameOption}`}>
-                <div>
-                  <p>{item[4]} - </p>
-                  <p>{item[2].title} at</p>
-                  <p>
-                    ${item[3].price} each
-                    {item[3].frameOption ? `, ${item[3].frameOption}` : null}
-                  </p>
-                  <p>subtotal: ${item[4] * item[3].price}</p>
-                </div>
-              </div>
-            );
-          })} */}
           <div id="cart-total-container">
             <h3 id="cart-total">Total: ${totalCost}</h3>
           </div>

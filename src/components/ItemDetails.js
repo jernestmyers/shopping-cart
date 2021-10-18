@@ -7,6 +7,8 @@ function ItemDetails({
   itemsInCart,
   setItemsInCart,
   priceList,
+  selectedQuantity,
+  setSelectedQuantity,
 }) {
   const [item, setItem] = useState({});
   const [price, setPrice] = useState({});
@@ -68,6 +70,8 @@ function ItemDetails({
             itemToAdd={item}
             itemsInCart={itemsInCart}
             setItemsInCart={setItemsInCart}
+            selectedQuantity={selectedQuantity}
+            setSelectedQuantity={setSelectedQuantity}
           ></AddToCart>
         </div>
       </div>
