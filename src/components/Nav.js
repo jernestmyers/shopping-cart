@@ -2,22 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function Nav(props) {
-  // document.querySelector(`nav`).addEventListener(`click`, () => {
-  //   // const navDecoration = () => {
-  //   if (window.location.pathname === `/about`) {
-  //     document.querySelector(`#about-nav`).classList.add(`nav-underline`);
-  //     document.querySelector(`#shop-nav`).classList.remove(`nav-underline`);
-  //   } else if (window.location.pathname === `/shop`) {
-  //     document.querySelector(`#shop-nav`).classList.add(`nav-underline`);
-  //     document.querySelector(`#about-nav`).classList.remove(`nav-underline`);
-  //   } else {
-  //     document.querySelector(`#about-nav`).classList.remove(`nav-underline`);
-  //     document.querySelector(`#shop-nav`).classList.remove(`nav-underline`);
-  //   }
-  //   // };
-  //   console.log(`click nav`);
-  // });
-
   const quantityArray = [];
   props.itemsInCart.map((item) => {
     return quantityArray.push(item[4]);
@@ -44,10 +28,14 @@ function Nav(props) {
       </Link>
       <ul>
         <Link to="/about">
-          <li id="about-nav">about</li>
+          <li className="nav-link-to-decorate" id="about-nav">
+            about
+          </li>
         </Link>
         <Link to="/shop">
-          <li id="shop-nav">shop</li>
+          <li className="nav-link-to-decorate" id="shop-nav">
+            shop
+          </li>
         </Link>
         <Link to="/cart">
           <li id="nav-cart">

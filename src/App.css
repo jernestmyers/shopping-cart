@@ -406,13 +406,6 @@ button:hover {
   margin-bottom: 0.5rem;
 }
 
-/* CLASS TO TOGGLE UNDERLINE IN NAV */
-/* .nav-underline {
-  text-decoration: underline;
-  text-underline-offset: 0.5rem;
-  text-decoration-thickness: 0.125rem;
-} */
-
 /* BEGIN ABOUT CSS */
 #about-container {
   display: flex;

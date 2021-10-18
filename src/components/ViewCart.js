@@ -81,16 +81,6 @@ function ViewCart(props) {
                   </div>
                   <div className="view-cart-edit-container">
                     <p>subtotal: ${item[4] * item[3].price}</p>
-                    {/* <input
-                      data-title={item[0]}
-                      data-frameoption={item[1]}
-                      type="number"
-                      value={item[4]}
-                      step="1"
-                      min="1"
-                      onChange={handleQuantityChange}
-                    ></input> */}
-                    {/* <form> */}
                     <div id="quantity-container">
                       <label className="quantity-label" htmlFor="quantityInput">
                         edit:
@@ -105,9 +95,7 @@ function ViewCart(props) {
                         step="1"
                         value={item[4]}
                       ></input>
-                      {/* <span className="validity"></span> */}
                     </div>
-                    {/* </form> */}
                     <button
                       data-title={item[0]}
                       data-frameoption={item[1]}

@@ -7,7 +7,7 @@ import Shop from "./components/Shop.js";
 import ItemDetails from "./components/ItemDetails.js";
 import ViewCart from "./components/ViewCart.js";
 import metFacade from "./imgs/the-met.jpg";
-import Footer from "./components/Footer.js";
+// import Footer from "./components/Footer.js";
 
 function App() {
   const metApiIds = [
@@ -115,7 +115,6 @@ function App() {
 
   const [itemsForSale, setItemsForSale] = useState([]);
   const [itemsInCart, setItemsInCart] = useState([]);
-  // const [selectedQuantity, setSelectedQuantity] = useState(1);
 
   useEffect(() => {
     const fetchItems = async () => {
@@ -166,8 +165,6 @@ function App() {
                 itemsInCart={itemsInCart}
                 setItemsInCart={setItemsInCart}
                 priceList={priceList}
-                // selectedQuantity={selectedQuantity}
-                // setSelectedQuantity={setSelectedQuantity}
               />
             )}
           ></Route>
@@ -178,8 +175,6 @@ function App() {
                 {...props}
                 itemsInCart={itemsInCart}
                 setItemsInCart={setItemsInCart}
-                // selectedQuantity={selectedQuantity}
-                // setSelectedQuantity={setSelectedQuantity}
               />
             )}
           ></Route>
