@@ -54,6 +54,10 @@ nav {
   z-index: 10;
 }
 
+.content-container {
+  margin-bottom: 2rem;
+}
+
 #home-icon-container {
   display: flex;
 }
@@ -99,7 +103,6 @@ a:visited {
   display: grid;
   justify-items: center;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  /* grid-template-rows: 1fr 1fr 1fr 1fr 1fr; */
   column-gap: 1rem;
   row-gap: 2rem;
   margin-bottom: 1rem;
@@ -295,15 +298,7 @@ h4 {
   padding-left: 0.5rem;
 }
 
-/* 
-input:valid + span:after {
-  position: absolute;
-  content: "✓";
-  padding-left: 5px;
-} */
-
 .add-btn,
-/* #checkout-btn { */
 button {
   margin-top: 0.5rem;
   font-size: 1.5rem;
@@ -316,7 +311,6 @@ button {
 }
 
 .add-btn:hover,
-/* #checkout-btn:hover { */
 button:hover {
   background-color: #ec042c;
 }
@@ -362,15 +356,10 @@ button:hover {
 #view-cart-total {
   display: flex;
   padding: 0 0.5rem;
-  /* border: 0.25rem solid red; */
   column-gap: 2rem;
   justify-content: center;
   align-items: center;
 }
-/* 
-#checkout-btn {
-  margin: 0.25rem;
-} */
 
 #cart-total-container {
   width: 630px;
@@ -409,7 +398,7 @@ button:hover {
 /* BEGIN ABOUT CSS */
 #about-container {
   display: flex;
-  padding: 0 1rem;
+  padding: 0 2rem;
 }
 
 #about-info-container {
@@ -417,7 +406,7 @@ button:hover {
   font-size: 1.25rem;
   line-height: 2rem;
   text-align: justify;
-  padding-right: 1rem;
+  padding-right: 2rem;
 }
 
 #about-img-container {
@@ -438,33 +427,36 @@ button:hover {
 
 /* BEGIN FOOTER CSS */
 footer {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
   display: flex;
-  align-items: flex-end;
-  flex-grow: 2;
-  margin-bottom: 10px;
+  justify-content: center;
+  align-items: center;
+  column-gap: 2rem;
+  height: 2rem;
+  background-color: #ec042c;
+  color: white;
 }
 
-#github-footer-icon {
+.footer-icon {
+  fill: white;
   padding: 0;
   margin: 0;
-  margin-left: 10px;
-  width: 20px;
-  height: 20px;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
-#footer-msg {
-  padding-bottom: 3px;
+.footer-icon:hover {
+  fill: black;
 }
 
-#footer-link {
+.footer-svg-link {
+  height: 1.5rem;
   text-decoration: none;
 }
 
-#footer-link:visited {
-  color: black;
-}
-
-#footer-link,
-#footer-svg-link {
-  padding-top: 20px;
+#footer-svg-link:visited {
+  color: white;
 }

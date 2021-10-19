@@ -36,7 +36,7 @@ function ItemDetails({
   };
 
   return (
-    <div id="item-details-container">
+    <div className="content-container" id="item-details-container">
       <div id="item-details-info-container">
         <div id="item-details-info">
           <h3 id="object-details-header">Details</h3>

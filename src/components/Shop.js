@@ -47,7 +47,7 @@ function Shop(props) {
   };
 
   return (
-    <div>
+    <div className="content-container">
       <div id="filter-container">
         <h4 id="filter-desc">filter by medium</h4>
         <div id="filter-btn-container">

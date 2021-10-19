@@ -49,7 +49,7 @@ function ViewCart(props) {
   getTotalCost();
 
   return (
-    <div>
+    <div className="content-container">
       {!props.itemsInCart.length ? (
         <div className="view-cart-container">
           <h1>Your cart is empty.</h1>
