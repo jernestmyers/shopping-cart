@@ -54,7 +54,7 @@ function ViewCart(props) {
   const handlePathname = (e) => {
     const linkClicked = e.target.closest(`a`).id;
     if (linkClicked === `back-to-shop`) {
-      props.setCurrentPath(`/shop`);
+      props.setCurrentPath(`/shopping-cart/shop`);
     }
   };
 
