@@ -8,10 +8,8 @@ import ItemDetails from "./components/ItemDetails.js";
 import ViewCart from "./components/ViewCart.js";
 import metFacade from "./imgs/the-met.jpg";
 import Footer from "./components/Footer.js";
-// import useModal from "./hooks/useModal.js";
 
 function App() {
-  // const { open, openModal, closeModal } = useModal();
   const [itemsInCart, setItemsInCart] = useState([]);
 
   const metApiIds = [

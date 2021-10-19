@@ -1,19 +1,12 @@
 import React from "react";
 import Portal from "./Portal";
 import { Link } from "react-router-dom";
-import "../styles/Modal.css";
+import "../styles/Modals.css";
 
-const ConfirmAddToCart = (props) => {
+const ConfirmAddModal = (props) => {
   const handleModal = (e) => {
-    // if (e.target.closest(`a`).id === `back-to-item-shop`) {
-    // props.close();
-    // }
     props.setIsSubmitValid(false);
   };
-
-  console.log(props.itemToAdd);
-  console.log(props.selectedQuantity);
-  console.log(props.selectedPrice);
 
   return (
     <Portal>
@@ -42,4 +35,4 @@ const ConfirmAddToCart = (props) => {
   );
 };
 
-export default ConfirmAddToCart;
+export default ConfirmAddModal;

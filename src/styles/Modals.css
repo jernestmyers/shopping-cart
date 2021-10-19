@@ -1,4 +1,5 @@
-#confirm-add-modal-container {
+#confirm-add-modal-container,
+#checkout-modal-container {
   position: fixed;
   cursor: default;
   overflow: auto;
@@ -9,7 +10,8 @@
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-#confirm-add-modal-content {
+#confirm-add-modal-content,
+#checkout-modal-content {
   max-width: 100%;
   opacity: 95%;
   padding: 0.5rem;
@@ -24,7 +26,29 @@
   background-color: #f0f0f0;
 }
 
+#checkout-modal-content {
+  height: auto;
+  row-gap: 1rem;
+  padding: 1rem;
+}
+
 #modal-to-cart-btn,
 #back-to-item-container {
   font-size: 1rem;
+}
+
+.checkout-modal-msg {
+  text-align: justify;
+  line-height: 1.5rem;
+}
+
+.modal-back-arrow {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.modal-back-arrow:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+  text-decoration-thickness: 0.125rem;
 }

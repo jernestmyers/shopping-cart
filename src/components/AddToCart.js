@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
-// import useModal from "../hooks/useModal.js";
-import ConfirmAddToCart from "./ConfirmAddToCart.js";
+import ConfirmAddModal from "./ConfirmAddModal.js";
 
 function AddToCart(props) {
-  // const { open, openModal, closeModal } = useModal();
   const [isSubmitValid, setIsSubmitValid] = useState(false);
   const [selectedPrice, setSelectedPrice] = useState(props.price.price);
   const [selectedQuantity, setSelectedQuantity] = useState(1);
@@ -134,14 +132,13 @@ function AddToCart(props) {
         <input className="add-btn" type="submit" value="Add To Cart" />
       </form>
       {isSubmitValid ? (
-        <ConfirmAddToCart
-          // close={closeModal}
+        <ConfirmAddModal
           itemToAdd={props.itemToAdd}
           selectedQuantity={selectedQuantity}
           selectedPrice={selectedPrice}
           currentPath={props.currentPath}
           setIsSubmitValid={setIsSubmitValid}
-        ></ConfirmAddToCart>
+        ></ConfirmAddModal>
       ) : null}
     </div>
   );

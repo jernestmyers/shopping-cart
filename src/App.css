@@ -217,7 +217,6 @@ h4 {
 #item-details-info-container {
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
 }
 
 #item-details-info {
@@ -250,12 +249,17 @@ h4 {
 
 #back-container {
   width: 5rem;
-  /* width: auto; */
 }
 
 #back-to-shop {
   color: black;
   font-weight: 600;
+}
+
+#back-to-shop:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+  text-decoration-thickness: 0.125rem;
 }
 
 /* BEGIN ADDTOCART CSS */

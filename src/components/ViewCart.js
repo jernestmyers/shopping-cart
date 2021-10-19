@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import CheckoutModal from "./CheckoutModal.js";
 
 function ViewCart(props) {
+  const [isCheckoutClicked, setIsCheckoutClicked] = useState(false);
+
   const handleItemRemoval = (e) => {
     props.setItemsInCart(
       props.itemsInCart.filter((item) => {
@@ -122,11 +125,7 @@ function ViewCart(props) {
           <div id="view-cart-total">
             <button
               id="checkout-btn"
-              onClick={() =>
-                alert(
-                  `Thanks for exploring my mock e-commerce site. Message me on GitHub with constructive feedback, if desired.`
-                )
-              }
+              onClick={() => setIsCheckoutClicked(true)}
             >
               Continue to Checkout
             </button>
@@ -136,6 +135,11 @@ function ViewCart(props) {
               <p> &#8592; continue shopping</p>
             </Link>
           </div>
+          {isCheckoutClicked ? (
+            <CheckoutModal
+              setIsCheckoutClicked={setIsCheckoutClicked}
+            ></CheckoutModal>
+          ) : null}
         </div>
       )}
     </div>
