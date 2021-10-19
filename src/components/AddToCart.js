@@ -59,9 +59,12 @@ function AddToCart(props) {
         !document.querySelector(`#unframed`).checked &&
         !document.querySelector(`#framed`).checked
       ) {
-        alert(`Please choose a framing option.`);
+        document.querySelector(
+          `#frame-alert-msg`
+        ).textContent = `* Please select a framing option.`;
       } else {
         organizeCart();
+        document.querySelector(`#frame-alert-msg`).textContent = ``;
       }
     } else {
       organizeCart();
@@ -83,6 +86,9 @@ function AddToCart(props) {
           <p>${props.price.price} textile</p>
         ) : (
           <div className="radio-framing">
+            <div id="frame-alert-container">
+              <p id="frame-alert-msg"></p>
+            </div>
             <input
               onChange={handleFrameChoice}
               type="radio"
