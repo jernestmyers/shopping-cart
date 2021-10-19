@@ -56,7 +56,7 @@ nav {
 }
 
 .content-container {
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 
 #home-icon-container {
@@ -456,6 +456,10 @@ button:hover {
   height: 1rem;
 }
 
+#met-store-plug {
+  margin-top: 2rem;
+}
+
 /* BEGIN FOOTER CSS */
 footer {
   width: 100%;
@@ -490,4 +494,81 @@ footer {
 
 #footer-svg-link:visited {
   color: white;
+}
+
+/* BEGIN HOME CSS */
+#home-container {
+  position: relative;
+  width: 50%;
+  align-self: center;
+}
+
+#met-facade {
+  opacity: 1;
+  display: block;
+  transition: 0.5s ease;
+  backface-visibility: hidden;
+}
+
+.middle,
+.top-middle {
+  transition: 0.5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.top-middle {
+  top: 5%;
+}
+
+#home-container:hover #met-facade {
+  opacity: 0.3;
+}
+
+#home-container:hover .middle {
+  opacity: 1;
+}
+
+#home-container:hover .top-middle {
+  opacity: 1;
+}
+
+.text {
+  padding: 0.75rem;
+}
+
+.welcome-msg {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.top-middle {
+  display: flex;
+  align-content: center;
+  column-gap: 0.5rem;
+}
+
+#overlay-icon-container {
+  display: flex;
+}
+
+#overlay-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-right: 0.5rem;
+}
+
+#welcome-msg-container,
+#overlay-icon-text-container {
+  display: flex;
+  align-items: center;
+}
+
+#overlay-icon-text-container {
+  border-left: 0.125rem solid black;
+  padding-left: 0.5rem;
 }

@@ -30,6 +30,18 @@ function About() {
             </a>
             .
           </p>
+          <p id="met-store-plug">
+            interested in real replicas?{" "}
+            <a
+              className="linkToMet"
+              href="https://store.metmuseum.org/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              visit the met's official shop here
+            </a>
+            .
+          </p>
         </div>
         <div id="about-img-container">
           <img

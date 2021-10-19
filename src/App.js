@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Nav from "./components/Nav.js";
 import About from "./components/About.js";
 import Shop from "./components/Shop.js";
@@ -169,7 +169,13 @@ function App() {
           setCurrentPath={setCurrentPath}
         />
         <Switch>
-          <Route path="/" exact component={Home}></Route>
+          <Route
+            path="/"
+            exact
+            render={(props) => (
+              <Home {...props} setCurrentPath={setCurrentPath} />
+            )}
+          ></Route>
           <Route path="/about" component={About}></Route>
           <Route
             path="/shop"
@@ -215,9 +221,35 @@ function App() {
   );
 }
 
-const Home = () => (
+const Home = (props) => (
   <div className="content-container" id="home-container">
     <img id="met-facade" src={metFacade} alt="Facade of The Met"></img>
+    <div class="top-middle">
+      <div id="welcome-msg-container">
+        <p class="text" className="welcome-msg">
+          welcome to
+        </p>
+      </div>
+      <div id="overlay-icon-container">
+        <img
+          id="overlay-icon"
+          src="https://iconape.com/wp-content/files/yu/152764/png/metropolitan-art-museum-logo.png"
+          alt="Metropolitan Museuem of Art logo"
+        ></img>
+        <div id="overlay-icon-text-container">
+          <p id="overlay-icon-text" className="welcome-msg">
+            replica
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="middle">
+      <Link to="/shop">
+        <button onClick={() => props.setCurrentPath(`/shop`)} class="text">
+          shop now
+        </button>
+      </Link>
+    </div>
   </div>
 );
 
