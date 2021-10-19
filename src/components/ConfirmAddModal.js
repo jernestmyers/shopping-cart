@@ -17,7 +17,7 @@ const ConfirmAddModal = (props) => {
             You added {props.selectedQuantity}{" "}
             {props.selectedQuantity === 1 ? `item` : `items`} to your cart.
           </p>
-          <Link onClick={handleModal} to="/cart">
+          <Link onClick={handleModal} to="/shopping-cart/cart">
             <button id="modal-to-cart-btn">View Cart</button>
           </Link>
           <div id="back-to-item-container">
