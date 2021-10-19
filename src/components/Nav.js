@@ -27,16 +27,16 @@ function Nav(props) {
         </div>
       </Link>
       <ul>
-        <Link to="/about">
-          <li className="nav-link-to-decorate" id="about-nav">
+        <li>
+          <Link id="about-nav" className="nav-link-to-decorate" to="/about">
             about
-          </li>
-        </Link>
-        <Link to="/shop">
-          <li className="nav-link-to-decorate" id="shop-nav">
+          </Link>
+        </li>
+        <li>
+          <Link id="shop-nav" className="nav-link-to-decorate" to="/shop">
             shop
-          </li>
-        </Link>
+          </Link>
+        </li>
         <Link to="/cart">
           <li id="nav-cart">
             <svg
