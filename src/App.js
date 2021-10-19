@@ -8,37 +8,16 @@ import ItemDetails from "./components/ItemDetails.js";
 import ViewCart from "./components/ViewCart.js";
 import metFacade from "./imgs/the-met.jpg";
 import Footer from "./components/Footer.js";
+// import useModal from "./hooks/useModal.js";
 
 function App() {
+  // const { open, openModal, closeModal } = useModal();
+  const [itemsInCart, setItemsInCart] = useState([]);
+
   const metApiIds = [
     11116, 36131, 39901, 265904, 282234, 266983, 449534, 625591, 337070, 10946,
     751505, 827660, 283099, 13390, 39737, 707455, 10186, 11227, 262612,
   ];
-
-  const [currentPath, setCurrentPath] = useState();
-
-  useEffect(() => {
-    if (currentPath === `/about`) {
-      document
-        .querySelector(`#about-nav`)
-        .classList.add(`nav-link-to-decorate`);
-      document
-        .querySelector(`#shop-nav`)
-        .classList.remove(`nav-link-to-decorate`);
-    } else if (currentPath === `/shop`) {
-      document
-        .querySelector(`#about-nav`)
-        .classList.remove(`nav-link-to-decorate`);
-      document.querySelector(`#shop-nav`).classList.add(`nav-link-to-decorate`);
-    } else {
-      document
-        .querySelector(`#about-nav`)
-        .classList.remove(`nav-link-to-decorate`);
-      document
-        .querySelector(`#shop-nav`)
-        .classList.remove(`nav-link-to-decorate`);
-    }
-  }, [currentPath]);
 
   const priceList = [
     {
@@ -138,9 +117,31 @@ function App() {
     },
   ];
 
-  const [itemsForSale, setItemsForSale] = useState([]);
-  const [itemsInCart, setItemsInCart] = useState([]);
+  const [currentPath, setCurrentPath] = useState();
+  useEffect(() => {
+    if (currentPath === `/about`) {
+      document
+        .querySelector(`#about-nav`)
+        .classList.add(`nav-link-to-decorate`);
+      document
+        .querySelector(`#shop-nav`)
+        .classList.remove(`nav-link-to-decorate`);
+    } else if (currentPath === `/shop`) {
+      document
+        .querySelector(`#about-nav`)
+        .classList.remove(`nav-link-to-decorate`);
+      document.querySelector(`#shop-nav`).classList.add(`nav-link-to-decorate`);
+    } else {
+      document
+        .querySelector(`#about-nav`)
+        .classList.remove(`nav-link-to-decorate`);
+      document
+        .querySelector(`#shop-nav`)
+        .classList.remove(`nav-link-to-decorate`);
+    }
+  }, [currentPath]);
 
+  const [itemsForSale, setItemsForSale] = useState([]);
   useEffect(() => {
     const fetchItems = async () => {
       const replicaObjects = [];
@@ -193,6 +194,7 @@ function App() {
                 itemsInCart={itemsInCart}
                 setItemsInCart={setItemsInCart}
                 priceList={priceList}
+                currentPath={currentPath}
                 setCurrentPath={setCurrentPath}
               />
             )}

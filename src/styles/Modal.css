@@ -1,0 +1,30 @@
+#confirm-add-modal-container {
+  position: fixed;
+  cursor: default;
+  overflow: auto;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+#confirm-add-modal-content {
+  max-width: 100%;
+  opacity: 95%;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  margin: 15% auto;
+  height: 150px;
+  width: 300px;
+  border-radius: 0.5rem;
+  background-color: #f0f0f0;
+}
+
+#modal-to-cart-btn,
+#back-to-item-container {
+  font-size: 1rem;
+}

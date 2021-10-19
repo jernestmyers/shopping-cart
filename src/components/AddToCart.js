@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
+// import useModal from "../hooks/useModal.js";
+import ConfirmAddToCart from "./ConfirmAddToCart.js";
 
 function AddToCart(props) {
+  // const { open, openModal, closeModal } = useModal();
+  const [isSubmitValid, setIsSubmitValid] = useState(false);
   const [selectedPrice, setSelectedPrice] = useState(props.price.price);
   const [selectedQuantity, setSelectedQuantity] = useState(1);
 
@@ -64,10 +68,12 @@ function AddToCart(props) {
         ).textContent = `* Please select a framing option.`;
       } else {
         organizeCart();
+        setIsSubmitValid(true);
         document.querySelector(`#frame-alert-msg`).textContent = ``;
       }
     } else {
       organizeCart();
+      setIsSubmitValid(true);
     }
   };
 
@@ -127,6 +133,16 @@ function AddToCart(props) {
         </div>
         <input className="add-btn" type="submit" value="Add To Cart" />
       </form>
+      {isSubmitValid ? (
+        <ConfirmAddToCart
+          // close={closeModal}
+          itemToAdd={props.itemToAdd}
+          selectedQuantity={selectedQuantity}
+          selectedPrice={selectedPrice}
+          currentPath={props.currentPath}
+          setIsSubmitValid={setIsSubmitValid}
+        ></ConfirmAddToCart>
+      ) : null}
     </div>
   );
 }

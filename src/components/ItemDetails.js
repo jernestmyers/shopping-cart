@@ -10,6 +10,7 @@ function ItemDetails({
   priceList,
   selectedQuantity,
   setSelectedQuantity,
+  currentPath,
   setCurrentPath,
 }) {
   const [item, setItem] = useState({});
@@ -81,6 +82,7 @@ function ItemDetails({
             setItemsInCart={setItemsInCart}
             selectedQuantity={selectedQuantity}
             setSelectedQuantity={setSelectedQuantity}
+            currentPath={currentPath}
           ></AddToCart>
         </div>
         <div id="back-container">
