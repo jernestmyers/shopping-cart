@@ -63,7 +63,11 @@ function ViewCart(props) {
       {!props.itemsInCart.length ? (
         <div className="view-cart-container">
           <h1>Your cart is empty.</h1>
-          <Link onClick={handlePathname} id="back-to-shop" to="/shop">
+          <Link
+            onClick={handlePathname}
+            id="back-to-shop"
+            to="/shopping-cart/shop"
+          >
             <button>Click to Shop</button>
           </Link>
         </div>
@@ -131,7 +135,11 @@ function ViewCart(props) {
             </button>
           </div>
           <div id="viewCart-back-container">
-            <Link onClick={handlePathname} id="back-to-shop" to="/shop">
+            <Link
+              onClick={handlePathname}
+              id="back-to-shop"
+              to="/shopping-cart/shop"
+            >
               <p> &#8592; continue shopping</p>
             </Link>
           </div>

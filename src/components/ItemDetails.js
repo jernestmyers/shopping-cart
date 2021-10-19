@@ -40,7 +40,7 @@ function ItemDetails({
   const handlePathname = (e) => {
     const linkClicked = e.target.closest(`a`).id;
     if (linkClicked === `back-to-shop`) {
-      setCurrentPath(`/shop`);
+      setCurrentPath(`/shopping-cart/shop`);
     }
   };
 
@@ -86,7 +86,11 @@ function ItemDetails({
           ></AddToCart>
         </div>
         <div id="back-container">
-          <Link onClick={handlePathname} id="back-to-shop" to="/shop">
+          <Link
+            onClick={handlePathname}
+            id="back-to-shop"
+            to="/shopping-cart/shop"
+          >
             <p> &#8592; back</p>
           </Link>
         </div>

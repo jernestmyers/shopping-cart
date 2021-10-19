@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Shop(props) {
@@ -93,7 +93,7 @@ function Shop(props) {
           <Link
             className="link-to-item"
             onClick={handlePathname}
-            to={`/shop/${item.objectID}`}
+            to={`/shopping-cart/shop/${item.objectID}`}
             key={item.objectID}
           >
             <div className="shop-thumbnail-container">

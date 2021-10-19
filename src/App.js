@@ -117,14 +117,14 @@ function App() {
 
   const [currentPath, setCurrentPath] = useState();
   useEffect(() => {
-    if (currentPath === `/about`) {
+    if (currentPath === `/shopping-cart/about`) {
       document
         .querySelector(`#about-nav`)
         .classList.add(`nav-link-to-decorate`);
       document
         .querySelector(`#shop-nav`)
         .classList.remove(`nav-link-to-decorate`);
-    } else if (currentPath === `/shop`) {
+    } else if (currentPath === `/shopping-cart/shop`) {
       document
         .querySelector(`#about-nav`)
         .classList.remove(`nav-link-to-decorate`);
@@ -170,15 +170,15 @@ function App() {
         />
         <Switch>
           <Route
-            path="/"
+            path="/shopping-cart"
             exact
             render={(props) => (
               <Home {...props} setCurrentPath={setCurrentPath} />
             )}
           ></Route>
-          <Route path="/about" component={About}></Route>
+          <Route path="/shopping-cart/about" component={About}></Route>
           <Route
-            path="/shop"
+            path="/shopping-cart/shop"
             exact
             render={(props) => (
               <Shop
@@ -190,7 +190,7 @@ function App() {
             )}
           ></Route>
           <Route
-            path="/shop/:objectID"
+            path="/shopping-cart/shop/:objectID"
             render={(props) => (
               <ItemDetails
                 {...props}
@@ -204,7 +204,7 @@ function App() {
             )}
           ></Route>
           <Route
-            path="/cart"
+            path="/shopping-cart/cart"
             render={(props) => (
               <ViewCart
                 {...props}
@@ -244,8 +244,11 @@ const Home = (props) => (
       </div>
     </div>
     <div class="middle">
-      <Link to="/shop">
-        <button onClick={() => props.setCurrentPath(`/shop`)} class="text">
+      <Link to="/shopping-cart/shop">
+        <button
+          onClick={() => props.setCurrentPath(`/shopping-cart/shop`)}
+          class="text"
+        >
           shop now
         </button>
       </Link>

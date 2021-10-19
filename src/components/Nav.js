@@ -15,21 +15,19 @@ function Nav(props) {
   const handlePathname = (e) => {
     const linkClicked = e.target.closest(`a`).id;
     if (linkClicked === `home-nav`) {
-      props.setCurrentPath(`/`);
+      props.setCurrentPath(`/shopping-cart`);
     } else if (linkClicked === `about-nav`) {
-      props.setCurrentPath(`/about`);
+      props.setCurrentPath(`/shopping-cart/about`);
     } else if (linkClicked === `shop-nav`) {
-      props.setCurrentPath(`/shop`);
-    } else if (linkClicked === `shop-nav`) {
-      props.setCurrentPath(`/shop`);
+      props.setCurrentPath(`/shopping-cart/shop`);
     } else if (linkClicked === `nav-cart-link`) {
-      props.setCurrentPath(`/cart`);
+      props.setCurrentPath(`/shopping-cart/cart`);
     }
   };
 
   return (
     <nav>
-      <Link id="home-nav" onClick={handlePathname} to="/">
+      <Link id="home-nav" onClick={handlePathname} to="/shopping-cart">
         <div id="home-icon-container">
           <img
             id="home-icon"
@@ -46,24 +44,22 @@ function Nav(props) {
           <Link
             id="about-nav"
             onClick={handlePathname}
-            // className="nav-link-to-decorate"
-            to="/about"
+            to="/shopping-cart/about"
           >
             about
           </Link>
         </li>
         <li>
-          <Link
-            id="shop-nav"
-            onClick={handlePathname}
-            // className="nav-link-to-decorate"
-            to="/shop"
-          >
+          <Link id="shop-nav" onClick={handlePathname} to="/shopping-cart/shop">
             shop
           </Link>
         </li>
 
-        <Link id="nav-cart-link" onClick={handlePathname} to="/cart">
+        <Link
+          id="nav-cart-link"
+          onClick={handlePathname}
+          to="/shopping-cart/cart"
+        >
           <li id="nav-cart">
             <svg
               xmlns="http://www.w3.org/2000/svg"
