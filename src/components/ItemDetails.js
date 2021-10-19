@@ -10,6 +10,7 @@ function ItemDetails({
   priceList,
   selectedQuantity,
   setSelectedQuantity,
+  setCurrentPath,
 }) {
   const [item, setItem] = useState({});
   const [price, setPrice] = useState({});
@@ -33,6 +34,13 @@ function ItemDetails({
         setPrice(obj);
       }
     });
+  };
+
+  const handlePathname = (e) => {
+    const linkClicked = e.target.closest(`a`).id;
+    if (linkClicked === `back-to-shop`) {
+      setCurrentPath(`/shop`);
+    }
   };
 
   return (
@@ -76,7 +84,7 @@ function ItemDetails({
           ></AddToCart>
         </div>
         <div id="back-container">
-          <Link id="back-to-shop" to="/shop">
+          <Link onClick={handlePathname} id="back-to-shop" to="/shop">
             <p> &#8592; back</p>
           </Link>
         </div>

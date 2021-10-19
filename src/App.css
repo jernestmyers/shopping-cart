@@ -98,11 +98,11 @@ li#nav-cart:hover {
   text-decoration-thickness: 0.125rem;
 }
 
-/* .nav-link-to-decorate {
+.nav-link-to-decorate {
   text-decoration: underline;
   text-underline-offset: 0.4rem;
   text-decoration-thickness: 0.125rem;
-} */
+}
 
 a {
   text-decoration: none;
@@ -231,6 +231,8 @@ h4 {
 
 .linkToMet:hover {
   text-decoration: underline;
+  text-underline-offset: 0.3rem;
+  text-decoration-thickness: 0.125rem;
 }
 
 #object-details-header {

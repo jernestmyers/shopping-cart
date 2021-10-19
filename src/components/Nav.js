@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function Nav(props) {
@@ -12,9 +12,24 @@ function Nav(props) {
     0
   );
 
+  const handlePathname = (e) => {
+    const linkClicked = e.target.closest(`a`).id;
+    if (linkClicked === `home-nav`) {
+      props.setCurrentPath(`/`);
+    } else if (linkClicked === `about-nav`) {
+      props.setCurrentPath(`/about`);
+    } else if (linkClicked === `shop-nav`) {
+      props.setCurrentPath(`/shop`);
+    } else if (linkClicked === `shop-nav`) {
+      props.setCurrentPath(`/shop`);
+    } else if (linkClicked === `nav-cart-link`) {
+      props.setCurrentPath(`/cart`);
+    }
+  };
+
   return (
     <nav>
-      <Link to="/">
+      <Link id="home-nav" onClick={handlePathname} to="/">
         <div id="home-icon-container">
           <img
             id="home-icon"
@@ -28,16 +43,27 @@ function Nav(props) {
       </Link>
       <ul>
         <li>
-          <Link id="about-nav" className="nav-link-to-decorate" to="/about">
+          <Link
+            id="about-nav"
+            onClick={handlePathname}
+            // className="nav-link-to-decorate"
+            to="/about"
+          >
             about
           </Link>
         </li>
         <li>
-          <Link id="shop-nav" className="nav-link-to-decorate" to="/shop">
+          <Link
+            id="shop-nav"
+            onClick={handlePathname}
+            // className="nav-link-to-decorate"
+            to="/shop"
+          >
             shop
           </Link>
         </li>
-        <Link to="/cart">
+
+        <Link id="nav-cart-link" onClick={handlePathname} to="/cart">
           <li id="nav-cart">
             <svg
               xmlns="http://www.w3.org/2000/svg"

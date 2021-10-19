@@ -46,6 +46,14 @@ function Shop(props) {
     e.target.classList.add(`filter-selected`);
   };
 
+  const handlePathname = (e) => {
+    const linkClicked = e.target.closest(`a`).className;
+    const itemPathname = e.target.closest(`a`).attributes.href.nodeValue;
+    if (linkClicked === `link-to-item`) {
+      props.setCurrentPath(itemPathname);
+    }
+  };
+
   return (
     <div className="content-container">
       <div id="filter-container">
@@ -82,7 +90,12 @@ function Shop(props) {
       </div>
       <div className="shop-overall-container">
         {filteredItems.map((item) => (
-          <Link to={`/shop/${item.objectID}`} key={item.objectID}>
+          <Link
+            className="link-to-item"
+            onClick={handlePathname}
+            to={`/shop/${item.objectID}`}
+            key={item.objectID}
+          >
             <div className="shop-thumbnail-container">
               <div className="image-container">
                 <img

@@ -48,12 +48,19 @@ function ViewCart(props) {
   };
   getTotalCost();
 
+  const handlePathname = (e) => {
+    const linkClicked = e.target.closest(`a`).id;
+    if (linkClicked === `back-to-shop`) {
+      props.setCurrentPath(`/shop`);
+    }
+  };
+
   return (
     <div className="content-container">
       {!props.itemsInCart.length ? (
         <div className="view-cart-container">
           <h1>Your cart is empty.</h1>
-          <Link to="/shop">
+          <Link onClick={handlePathname} id="back-to-shop" to="/shop">
             <button>Click to Shop</button>
           </Link>
         </div>
@@ -125,7 +132,7 @@ function ViewCart(props) {
             </button>
           </div>
           <div id="viewCart-back-container">
-            <Link id="back-to-shop" to="/shop">
+            <Link onClick={handlePathname} id="back-to-shop" to="/shop">
               <p> &#8592; continue shopping</p>
             </Link>
           </div>

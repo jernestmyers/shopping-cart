@@ -15,6 +15,31 @@ function App() {
     751505, 827660, 283099, 13390, 39737, 707455, 10186, 11227, 262612,
   ];
 
+  const [currentPath, setCurrentPath] = useState();
+
+  useEffect(() => {
+    if (currentPath === `/about`) {
+      document
+        .querySelector(`#about-nav`)
+        .classList.add(`nav-link-to-decorate`);
+      document
+        .querySelector(`#shop-nav`)
+        .classList.remove(`nav-link-to-decorate`);
+    } else if (currentPath === `/shop`) {
+      document
+        .querySelector(`#about-nav`)
+        .classList.remove(`nav-link-to-decorate`);
+      document.querySelector(`#shop-nav`).classList.add(`nav-link-to-decorate`);
+    } else {
+      document
+        .querySelector(`#about-nav`)
+        .classList.remove(`nav-link-to-decorate`);
+      document
+        .querySelector(`#shop-nav`)
+        .classList.remove(`nav-link-to-decorate`);
+    }
+  }, [currentPath]);
+
   const priceList = [
     {
       id: 11116,
@@ -141,6 +166,8 @@ function App() {
           className="navMenu"
           itemsInCart={itemsInCart}
           setItemsInCart={setItemsInCart}
+          currentPath={currentPath}
+          setCurrentPath={setCurrentPath}
         />
         <Switch>
           <Route path="/" exact component={Home}></Route>
@@ -153,6 +180,7 @@ function App() {
                 {...props}
                 itemsForSale={itemsForSale}
                 priceList={priceList}
+                setCurrentPath={setCurrentPath}
               />
             )}
           ></Route>
@@ -165,6 +193,7 @@ function App() {
                 itemsInCart={itemsInCart}
                 setItemsInCart={setItemsInCart}
                 priceList={priceList}
+                setCurrentPath={setCurrentPath}
               />
             )}
           ></Route>
@@ -175,6 +204,7 @@ function App() {
                 {...props}
                 itemsInCart={itemsInCart}
                 setItemsInCart={setItemsInCart}
+                setCurrentPath={setCurrentPath}
               />
             )}
           ></Route>
