@@ -95,8 +95,12 @@ function ItemDetails({
           </Link>
         </div>
       </div>
-      <div>
-        <img src={item.primaryImageSmall} alt={item.title}></img>
+      <div id="item-details-img-container">
+        <img
+          id="item-details-img"
+          src={item.primaryImageSmall}
+          alt={item.title}
+        ></img>
       </div>
     </div>
   );
