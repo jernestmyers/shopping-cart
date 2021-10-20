@@ -54,7 +54,8 @@ ul {
 }
 
 nav {
-  position: sticky;
+  width: 100%;
+  position: fixed;
   top: 0;
   display: flex;
   background-color: #ec042c;
@@ -66,6 +67,7 @@ nav {
 }
 
 .content-container {
+  margin-top: 5rem;
   padding-bottom: 1.25rem;
   flex-grow: 1;
 }
@@ -801,5 +803,10 @@ footer {
 
   .filter-btn {
     font-size: 0.8rem;
+  }
+
+  #item-details-img {
+    max-width: 325px;
+    max-height: 325px;
   }
 }

@@ -34,3 +34,4 @@ this is the [third react project](https://www.theodinproject.com/paths/full-stac
 ## areas for improvement
 
 1. make app responsive across browsers and devices.
+2. the method that underlines "about" and "shop" when users are on those respective pages is not compatible with keyboard navigation.
