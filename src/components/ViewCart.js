@@ -87,7 +87,9 @@ function ViewCart(props) {
                   </div>
                   <div className="view-cart-details-container">
                     <p>{item[2].title}</p>
-                    <p>by {item[2].artistDisplayName}</p>
+                    <p className="middle-spacing-helper">
+                      by {item[2].artistDisplayName}
+                    </p>
                     <p>
                       ${item[3].price} each
                       {item[3].frameOption ? `, ${item[3].frameOption}` : null}
@@ -95,7 +97,10 @@ function ViewCart(props) {
                   </div>
                   <div className="view-cart-edit-container">
                     <p>subtotal: ${item[4] * item[3].price}</p>
-                    <div id="quantity-container">
+                    <div
+                      id="quantity-container"
+                      className="middle-spacing-helper"
+                    >
                       <label className="quantity-label" htmlFor="quantityInput">
                         edit:
                       </label>
