@@ -2,7 +2,7 @@
 
 this is the [third react project](https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript/lessons/shopping-cart) from the odin project's full stack javascript curriculum.
 
-![gif demonstrating the app's features](./memory-game-demo.gif)
+![gif demonstrating the app's features](./shopping-cart-demo.gif)
 
 ## live version
 
@@ -36,3 +36,4 @@ this is the [third react project](https://www.theodinproject.com/paths/full-stac
 1. improve responsiveness across browsers and devices.
 2. the method that underlines "about" and "shop" when users are on those respective pages is not compatible with keyboard navigation.
 3. need error handling for when the met's API call fails- a CORS error is relatively common when fetching the data.
+4. make use of the useLocation hook in react-router-dom to ensure page loads at the top each time a component mounts.
