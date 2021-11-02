@@ -183,7 +183,8 @@ a:visited {
 
 #met-facade {
   width: var(--home-image-width);
-  height: auto;
+  /* height: auto; */
+  height: var(--home-image-width);
 }
 
 #cart-counter {
