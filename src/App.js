@@ -143,16 +143,30 @@ function App() {
   useEffect(() => {
     const fetchItems = async () => {
       const replicaObjects = [];
-      await Promise.all(
-        metApiIds.map(async (id) => {
-          const artData = await fetch(
-            `https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`,
-            { mode: "cors" }
-          );
-          const artObject = await artData.json();
-          replicaObjects.push(artObject);
-        })
-      );
+      try {
+        await Promise.all(
+          metApiIds.map(async (id) => {
+            try {
+              const artData = await fetch(
+                `https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`,
+                { mode: "cors" }
+              );
+              const artObject = await artData.json();
+              replicaObjects.push(artObject);
+            } catch (error) {
+              console.log(error);
+              alert(
+                `Hmm, we received this error while retrieving data from The Met's API: "${error}". Try again later.`
+              );
+            }
+          })
+        );
+      } catch (error) {
+        console.log(error);
+        alert(
+          `Uh oh, we received this error while retrieving data from The Met's API: "${error}". Try again later.`
+        );
+      }
       setItemsForSale(itemsForSale.concat(replicaObjects));
     };
     fetchItems();

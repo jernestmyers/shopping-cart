@@ -65,12 +65,6 @@ nav {
   z-index: 2;
 }
 
-.content-container {
-  margin-top: 4.5rem;
-  margin-bottom: 2.25rem;
-  flex-grow: 1;
-}
-
 #home-icon-container {
   display: flex;
 }
@@ -129,6 +123,29 @@ a:visited {
   color: #090809;
 }
 
+#cart-counter {
+  position: absolute;
+  font-size: 1.25rem;
+  padding: 0;
+  margin: 0;
+  top: 0.4rem;
+  right: 1.25rem;
+}
+
+.cart-thumbnail-container {
+  overflow: clip;
+  width: 150px;
+  height: 150px;
+}
+/* END NAV CSS */
+
+/* BEGIN SHOP CSS */
+.content-container {
+  margin-top: 4.5rem;
+  margin-bottom: 2.25rem;
+  flex-grow: 1;
+}
+
 .shop-overall-container {
   width: 100%;
   display: grid;
@@ -176,36 +193,11 @@ a:visited {
   font-size: 1rem;
 }
 
-#home-container {
-  display: flex;
-  justify-content: center;
-}
-
-#met-facade {
-  width: var(--home-image-width);
-  /* height: auto; */
-  height: var(--home-image-width);
-}
-
-#cart-counter {
-  position: absolute;
-  font-size: 1.25rem;
-  padding: 0;
-  margin: 0;
-  top: 0.4rem;
-  right: 1.25rem;
-}
-
-.cart-thumbnail-container {
-  overflow: clip;
-  width: 150px;
-  height: 150px;
-}
-
 #filter-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 1rem;
 }
 
 #filter-btn-container {
@@ -216,9 +208,20 @@ a:visited {
 
 .filter-btn {
   margin: 0 0.25rem;
+  font-size: 1rem;
 }
 
-/* BEGIN ITEM DETAILS CSS */
+.filter-selected {
+  background-color: #ec042c;
+}
+
+#filter-desc {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+/* END SHOP CSS */
+
+/* BEGIN ITEMDETAILS CSS */
 #item-details-container {
   max-width: 1350px;
 }
@@ -292,6 +295,7 @@ h4 {
   text-underline-offset: 0.3rem;
   text-decoration-thickness: 0.125rem;
 }
+/* END ITEMDETAILS CSS */
 
 /* BEGIN ADDTOCART CSS */
 .add-item-form {
@@ -376,6 +380,7 @@ button {
 button:hover {
   background-color: #ec042c;
 }
+/* END ADDTOCART CSS */
 
 /* BEGIN VIEWCART CSS */
 .view-cart-container {
@@ -440,24 +445,7 @@ button:hover {
   width: auto;
   margin-top: 0.25rem;
 }
-
-/* BEGIN SHOP CSS */
-.filter-btn {
-  font-size: 1rem;
-}
-
-.filter-selected {
-  background-color: #ec042c;
-}
-
-#filter-container {
-  margin-bottom: 1rem;
-}
-
-#filter-desc {
-  font-weight: 500;
-  margin-bottom: 0.5rem;
-}
+/* END VIEWCART CSS */
 
 /* BEGIN ABOUT CSS */
 #about-container {
@@ -495,6 +483,7 @@ button:hover {
 #met-store-plug {
   margin-top: 2rem;
 }
+/* END ABOUT CSS */
 
 /* BEGIN FOOTER CSS */
 footer {
@@ -532,14 +521,19 @@ footer {
 #footer-svg-link:visited {
   color: white;
 }
+/* END FOOTER CSS */
 
 /* BEGIN HOME CSS */
 #home-container {
+  display: flex;
+  justify-content: center;
   position: relative;
   align-self: center;
 }
 
 #met-facade {
+  width: var(--home-image-width);
+  height: var(--home-image-width);
   opacity: 1;
   display: block;
   transition: 0.5s ease;
@@ -608,6 +602,7 @@ footer {
   border-left: 0.125rem solid black;
   padding-left: 0.5rem;
 }
+/* END HOME CSS */
 
 @media screen and (min-width: 1080px) and (max-width: 1350px) {
   .shop-overall-container {
