@@ -9,13 +9,13 @@ function ViewCart(props) {
     props.setItemsInCart(
       props.itemsInCart.filter((item) => {
         if (e.target.dataset.title !== item[0]) {
-          return item;
+          return true;
         } else if (
           e.target.dataset.frameoption &&
           e.target.dataset.title === item[0] &&
           e.target.dataset.frameoption !== item[1]
         ) {
-          return item;
+          return true;
         }
       })
     );

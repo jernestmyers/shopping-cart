@@ -16,29 +16,29 @@ function Shop(props) {
           item.classification === `Photographs` &&
           e.target.id === `show-photos`
         ) {
-          return item;
+          return true;
         } else if (
           (item.classification.includes(`Textiles`) ||
             item.medium.includes(`silk`)) &&
           e.target.id === `show-textiles`
         ) {
-          return item;
+          return true;
         } else if (
           (item.classification.includes(`Paintings`) ||
             item.medium.includes(`Oil`) ||
             item.medium.includes(`Watercolor`)) &&
           e.target.id === `show-paintings`
         ) {
-          return item;
+          return true;
         } else if (
           (!item.medium ||
             item.classification === `Codices` ||
             item.classification === `Cut Paper`) &&
           e.target.id === `show-other`
         ) {
-          return item;
+          return true;
         } else if (e.target.id === `show-all`) {
-          return item;
+          return true;
         }
       })
     );
