@@ -75,26 +75,6 @@ function ItemDetails({
               Click here to learn more about this piece.
             </a>
           </div>
-          {/* <div id="add-item-container">
-          <AddToCart
-            price={price}
-            itemToAdd={item}
-            itemsInCart={itemsInCart}
-            setItemsInCart={setItemsInCart}
-            selectedQuantity={selectedQuantity}
-            setSelectedQuantity={setSelectedQuantity}
-            currentPath={currentPath}
-          ></AddToCart>
-        </div>
-        <div id="back-container">
-          <Link
-            onClick={handlePathname}
-            id="back-to-shop"
-            to="/shopping-cart/shop"
-          >
-            <p> &#8592; back</p>
-          </Link>
-        </div> */}
         </div>
         <div id="item-details-img-container">
           <img
